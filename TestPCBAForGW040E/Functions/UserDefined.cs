@@ -74,12 +74,30 @@ namespace TestPCBAForGW040E.Functions {
         }
 
         private string _logviewUART;
+        private string _logviewWPS;
+        private string _logviewSystem;
 
         public string logviewUART {
             get { return _logviewUART; }
             set {
                 _logviewUART = value;
                 OnPropertyChanged(nameof(logviewUART));
+            }
+        }
+
+        public string logviewWPS {
+            get { return _logviewWPS; }
+            set {
+                _logviewWPS = value;
+                OnPropertyChanged(nameof(logviewWPS));
+            }
+        }
+
+        public string logviewSystem {
+            get { return _logviewSystem; }
+            set {
+                _logviewSystem = value;
+                OnPropertyChanged(nameof(logviewSystem));
             }
         }
     }

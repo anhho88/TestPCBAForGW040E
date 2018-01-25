@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestPCBAForGW040E.Functions;
 
 namespace TestPCBAForGW040E.UserControls
 {
@@ -23,6 +24,12 @@ namespace TestPCBAForGW040E.UserControls
         public ucLogViewerSystem()
         {
             InitializeComponent();
+            this.DataContext = GlobalData.logContent;
+        }
+
+        private void TextBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e) {
+            TextBox t = sender as TextBox;
+            uartScrollViewer.ScrollToEnd();
         }
     }
 }

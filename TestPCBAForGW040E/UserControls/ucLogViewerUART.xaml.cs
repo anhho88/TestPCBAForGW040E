@@ -27,8 +27,8 @@ namespace TestPCBAForGW040E.UserControls
             this.DataContext = GlobalData.logContent;
         }
 
-        private void TextBlock_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e) {
-            TextBlock t = sender as TextBlock;
+        private void TextBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e) {
+            TextBox t = sender as TextBox;
             uartScrollViewer.ScrollToEnd();
         }
     }
