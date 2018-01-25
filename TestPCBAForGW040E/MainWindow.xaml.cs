@@ -65,6 +65,20 @@ namespace TestPCBAForGW040E {
             t.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFC6FF00"));
             int i = listTextBlock.IndexOf(t);
             bringUCtoFront(i);
+            switch(i) {
+                case 1: {
+                        GlobalData.mainwindowInformation.UARTDataSign = false;
+                        break;
+                    }
+                case 2: {
+                        GlobalData.mainwindowInformation.WPSDataSign = false;
+                        break;
+                    }
+                case 3: {
+                        GlobalData.mainwindowInformation.SYSDataSign = false;
+                        break;
+                    }
+            }
         }
 
         private void bringUCtoFront(int index) {

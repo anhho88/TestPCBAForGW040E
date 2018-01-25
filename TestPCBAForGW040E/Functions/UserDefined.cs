@@ -13,9 +13,6 @@ using System.Reflection;
 
 namespace TestPCBAForGW040E.Functions {
 
-    /// <summary>
-    /// 
-    /// </summary>
     public class ContentGridFields {
 
         public ContentGridFields() { }
@@ -51,6 +48,11 @@ namespace TestPCBAForGW040E.Functions {
         }
 
         private bool _isPortOpenSuccess = false;
+        private string _statustestContent;
+        private bool _uartnewdatasign = false;
+        private bool _wpsnewdatasign = false;
+        private bool _sysnewdatasign = false;
+        private bool _istesting = false;
 
         public bool isPortOpenSuccess {
             get { return _isPortOpenSuccess; }
@@ -59,7 +61,41 @@ namespace TestPCBAForGW040E.Functions {
                 OnPropertyChanged(nameof(isPortOpenSuccess));
             }
         }
-
+        public string statustestContent {
+            get { return _statustestContent; }
+            set {
+                _statustestContent = value;
+                OnPropertyChanged(nameof(statustestContent));
+            }
+        }
+        public bool UARTDataSign {
+            get { return _uartnewdatasign; }
+            set {
+                _uartnewdatasign = value;
+                OnPropertyChanged(nameof(UARTDataSign));
+            }
+        }
+        public bool WPSDataSign {
+            get { return _wpsnewdatasign; }
+            set {
+                _wpsnewdatasign = value;
+                OnPropertyChanged(nameof(WPSDataSign));
+            }
+        }
+        public bool SYSDataSign {
+            get { return _sysnewdatasign; }
+            set {
+                _sysnewdatasign = value;
+                OnPropertyChanged(nameof(SYSDataSign));
+            }
+        }
+        public bool IsTesting {
+            get { return _istesting; }
+            set {
+                _istesting = value;
+                OnPropertyChanged(nameof(IsTesting));
+            }
+        }
     }
 
     public class logViewContent : INotifyPropertyChanged {
@@ -102,7 +138,6 @@ namespace TestPCBAForGW040E.Functions {
         }
     }
 
-
     public class LoadTestCaseContent {
 
         enum localfiles { FW, MAC, LAN, USB, BUTTON, LED };
@@ -120,7 +155,7 @@ namespace TestPCBAForGW040E.Functions {
                     }
                 }
             } catch (Exception ex) {
-                MessageBox.Show(ex.ToString());
+                GlobalData.logContent.logviewSystem += ex.ToString();
             }
             return t.Count > 0 ? t : null;
         }
@@ -202,30 +237,17 @@ namespace TestPCBAForGW040E.Functions {
         }
 
         string _fwStatusContent = "";
-        SolidColorBrush _fwStatusColor = Brushes.Black;
         string _macStatusContent = "";
-        SolidColorBrush _macStatusColor = Brushes.Black;
         string _lanStatusContent = "";
-        SolidColorBrush _lanStatusColor = Brushes.Black;
         string _usbStatusContent = "";
-        SolidColorBrush _usbStatusColor = Brushes.Black;
         string _buttonStatusContent = "";
-        SolidColorBrush _buttonStatusColor = Brushes.Black;
         string _ledStatusContent = "";
-        SolidColorBrush _ledStatusColor = Brushes.Black;
 
         public string fwStatusContent {
             get { return _fwStatusContent; }
             set {
                 _fwStatusContent = value;
                 OnPropertyChanged(nameof(fwStatusContent));
-            }
-        }
-        public SolidColorBrush fwStatusColor {
-            get { return _fwStatusColor; }
-            set {
-                _fwStatusColor = value;
-                OnPropertyChanged(nameof(fwStatusColor));
             }
         }
 
@@ -236,26 +258,12 @@ namespace TestPCBAForGW040E.Functions {
                 OnPropertyChanged(nameof(macStatusContent));
             }
         }
-        public SolidColorBrush macStatusColor {
-            get { return _macStatusColor; }
-            set {
-                _macStatusColor = value;
-                OnPropertyChanged(nameof(macStatusColor));
-            }
-        }
 
         public string lanStatusContent {
             get { return _lanStatusContent; }
             set {
                 _lanStatusContent = value;
                 OnPropertyChanged(nameof(lanStatusContent));
-            }
-        }
-        public SolidColorBrush lanStatusColor {
-            get { return _lanStatusColor; }
-            set {
-                _lanStatusColor = value;
-                OnPropertyChanged(nameof(lanStatusColor));
             }
         }
 
@@ -266,13 +274,6 @@ namespace TestPCBAForGW040E.Functions {
                 OnPropertyChanged(nameof(usbStatusContent));
             }
         }
-        public SolidColorBrush usbStatusColor {
-            get { return _usbStatusColor; }
-            set {
-                _usbStatusColor = value;
-                OnPropertyChanged(nameof(usbStatusColor));
-            }
-        }
 
         public string buttonStatusContent {
             get { return _buttonStatusContent; }
@@ -281,26 +282,12 @@ namespace TestPCBAForGW040E.Functions {
                 OnPropertyChanged(nameof(buttonStatusContent));
             }
         }
-        public SolidColorBrush buttonStatusColor {
-            get { return _buttonStatusColor; }
-            set {
-                _buttonStatusColor = value;
-                OnPropertyChanged(nameof(buttonStatusColor));
-            }
-        }
 
         public string ledStatusContent {
             get { return _ledStatusContent; }
             set {
                 _ledStatusContent = value;
                 OnPropertyChanged(nameof(ledStatusContent));
-            }
-        }
-        public SolidColorBrush ledStatusColor {
-            get { return _ledStatusColor; }
-            set {
-                _ledStatusColor = value;
-                OnPropertyChanged(nameof(ledStatusColor));
             }
         }
 
@@ -349,9 +336,6 @@ namespace TestPCBAForGW040E.Functions {
 
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public class PropertiesDefaultSetting : INotifyPropertyChanged {
 
         public event PropertyChangedEventHandler PropertyChanged;

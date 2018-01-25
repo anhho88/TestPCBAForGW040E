@@ -141,7 +141,6 @@ C:\Users\ANHHO\Desktop\test\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\TestPC
 C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\bin\Debug\TestPCBAForGW040E.exe.config
 C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\bin\Debug\TestPCBAForGW040E.exe
 C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\bin\Debug\TestPCBAForGW040E.pdb
-C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\TestPCBAForGW040E.csprojResolveAssemblyReference.cache
 C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\Assets\ResourceDictionarys\Button.baml
 C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\Assets\ResourceDictionarys\CheckBox.baml
 C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\Assets\ResourceDictionarys\Combobox.baml
@@ -186,3 +185,6 @@ C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\TestPCBAFor
 C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\TestPCBAForGW040E.csproj.CoreCompileInputs.cache
 C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\TestPCBAForGW040E.exe
 C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\TestPCBAForGW040E.pdb
+C:\Users\ANHHO\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\bin\Debug\FontAwesome.WPF.dll
+C:\Users\ANHHO\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\bin\Debug\FontAwesome.WPF.xml
+C:\Users\ANHHO\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\TestPCBAForGW040E.csprojResolveAssemblyReference.cache

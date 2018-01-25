@@ -76,12 +76,8 @@ namespace TestPCBAForGW040E.UserControls {
             this.fwDataGrid.Items.Refresh();
             ///////////////////////////////////////////////////////////////////////////
             Thread t = new Thread(new ThreadStart(() => {
-                //var settings = Properties.Settings.Default;
-                ////Upload FW
-                //string errorMessage;
-                //if (settings.flag_FW=="1") {
-                //    if (!(new exUploadFW().uploadFWtoDUT(out errorMessage))) return;
-                //}
+                string errmessage;
+                bool ret = new mainProgram().Excuted(out errmessage);
             }));
             t.IsBackground = true;
             t.Start();
@@ -108,8 +104,10 @@ namespace TestPCBAForGW040E.UserControls {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            GlobalData.uploadFWContent[0].JUDGED = "PASS";
-            this.fwDataGrid.Items.Refresh();
+            waitDUT w = new waitDUT("30000");
+            w.ShowDialog();
+            //GlobalData.uploadFWContent[0].JUDGED = "PASS";
+            //this.fwDataGrid.Items.Refresh();
         }
     }
 }

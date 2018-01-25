@@ -4,13 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestPCBAForGW040E"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:uc="clr-namespace:TestPCBAForGW040E.UserControls"
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="500" MinWidth="700" Style="{StaticResource customWindow}">
+
     <Border CornerRadius="5,5,5,5">
         <Border.Style>
             <Style TargetType="Border">
-                <Setter Property="Background" Value="{StaticResource colorRowBackgroundFail}"/>
+                <Setter Property="Background" Value="#FF444444"/>
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding Path=isPortOpenSuccess,UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Value="True">
                         <Setter Property="Background" Value="#FF444444"/>
@@ -46,6 +48,24 @@
                     </StackPanel>
                     <StackPanel Grid.Column="1">
                         <Label x:Name="btnClose" VerticalAlignment="Top" HorizontalAlignment="Right" Width="40" FontSize="20" FontWeight="Bold" Padding="10,5,0,0" Foreground="White" MouseDown="btnClose_MouseDown"  ToolTipService.ToolTip="Tắt ứng dụng">X</Label>
+                        <Label x:Name="lblstatus" HorizontalAlignment="Right" Margin="0,-10,10,0" Content="{Binding Path=statustestContent, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Padding="0" FontSize="65" FontWeight="Bold">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Foreground" Value="#FF444444"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=lblstatus, Path=Content, Mode=OneWay}" Value="Waiting...">
+                                            <Setter Property="Foreground" Value="{StaticResource colorTextWait}"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ElementName=lblstatus, Path=Content, Mode=OneWay}" Value="OK">
+                                            <Setter Property="Foreground" Value="{StaticResource colorTextOK}"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ElementName=lblstatus, Path=Content, Mode=OneWay}" Value="NG">
+                                            <Setter Property="Foreground" Value="{StaticResource colorTextNG}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -69,10 +89,25 @@
                                         </TextBlock.Effect>
                                     </TextBlock>
                                 </Expander.Header>
-                                <StackPanel Margin="20,5,0,5">
-                                    <TextBlock x:Name="tbTesting" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="Testing"
+                                <StackPanel Margin="0,5,0,5">
+                                    <WrapPanel>
+                                        <fa:ImageAwesome Icon="Cog" Foreground="#FFC6FF00" SpinDuration="5" Spin="{Binding Path=IsTesting, Mode=OneWay}" Height="20" Width="20">
+                                            <Image.Style>
+                                                <Style TargetType="Image">
+                                                    <Setter Property="Visibility" Value="Hidden"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=IsTesting, Mode=OneWay}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Image.Style>
+                                        </fa:ImageAwesome>
+                                        <TextBlock Margin="5,0,0,0" x:Name="tbTesting" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="Testing"
                                                MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
-                                    </TextBlock>
+                                        </TextBlock>
+                                    </WrapPanel>
+                                    
                                 </StackPanel>
                             </Expander>
                             
@@ -85,18 +120,60 @@
                                         </TextBlock.Effect>
                                     </TextBlock>
                                 </Expander.Header>
-                                <StackPanel Margin="20,5,0,5">
-                                    <TextBlock x:Name="tbLogViewerUART" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="UART"
+                                <StackPanel Margin="0,5,0,5">
+                                    <WrapPanel>
+                                        <Image Height="20" Width="20" Source="/Assets/Images/error.png">
+                                            <Image.Style>
+                                                <Style TargetType="Image">
+                                                    <Setter Property="Visibility" Value="Hidden"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=UARTDataSign, Mode=OneWay}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Image.Style>
+                                        </Image>
+                                        <TextBlock Margin="5,0,0,0" x:Name="tbLogViewerUART" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="UART"
                                                MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
-                                    </TextBlock>
-                                    <TextBlock x:Name="tbLogViewerWPS" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="Window Power Shell"
+                                        </TextBlock>
+                                    </WrapPanel>
+                                    <WrapPanel>
+                                        <Image Height="20" Width="20" Source="/Assets/Images/error.png">
+                                            <Image.Style>
+                                                <Style TargetType="Image">
+                                                    <Setter Property="Visibility" Value="Hidden"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=WPSDataSign, Mode=OneWay}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Image.Style>
+                                        </Image>
+                                        <TextBlock Margin="5,0,0,0" x:Name="tbLogViewerWPS" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="Window Power Shell"
                                                MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
-                                        
-                                    </TextBlock>
-                                    <TextBlock x:Name="tbLogViewerSystem" FontWeight="Bold"  FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="System"
+
+                                        </TextBlock>
+                                    </WrapPanel>
+                                    <WrapPanel>
+                                        <Image Height="20" Width="20" Source="/Assets/Images/error.png">
+                                            <Image.Style>
+                                                <Style TargetType="Image">
+                                                    <Setter Property="Visibility" Value="Hidden"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=SYSDataSign, Mode=OneWay}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Image.Style>
+                                        </Image>
+                                        <TextBlock Margin="5,0,0,0" x:Name="tbLogViewerSystem" FontWeight="Bold"  FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="System"
                                                 MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
-                                        
-                                    </TextBlock>
+
+                                        </TextBlock>
+                                    </WrapPanel>
                                 </StackPanel>
                             </Expander>
                             
@@ -109,7 +186,7 @@
                                         </TextBlock.Effect>
                                     </TextBlock>
                                 </Expander.Header>
-                                <StackPanel Margin="20,5,0,5">
+                                <StackPanel Margin="25,5,0,5">
                                     <TextBlock x:Name="tbSettingsDUT" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="DUT"
                                                MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
 
@@ -126,7 +203,7 @@
                                         </TextBlock.Effect>
                                     </TextBlock>
                                 </Expander.Header>
-                                <StackPanel Margin="20,5,0,5">
+                                <StackPanel Margin="25,5,0,5">
                                     <TextBlock x:Name="tbHelpUserGuide" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="User Guide"
                                                MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
 

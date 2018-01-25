@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\
+C:\Users\ANHHO\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\
 TestPCBAForGW040E
 none
 false
 DEBUG;TRACE
-C:\Users\anhho\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\App.xaml
+C:\Users\ANHHO\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\App.xaml
 22-1627066433
 
-20583527886
-131569487696
+2164512557
+14-1021496922
 Assets\ResourceDictionarys\Button.xaml;Assets\ResourceDictionarys\CheckBox.xaml;Assets\ResourceDictionarys\Combobox.xaml;Assets\ResourceDictionarys\customWindow.xaml;Assets\ResourceDictionarys\DataGrid.xaml;Assets\ResourceDictionarys\Listbox.xaml;Assets\ResourceDictionarys\RadioButton.xaml;Assets\ResourceDictionarys\Slider.xaml;Assets\ResourceDictionarys\TabControl.xaml;Assets\ResourceDictionarys\Textbox.xaml;Assets\ResourceDictionarys\ToggleButton.xaml;MainWindow.xaml;SubControls\GetMAC.xaml;SubControls\waitDUT.xaml;UserControls\ucHelpAbout.xaml;UserControls\ucHelpHistory.xaml;UserControls\ucHelpUserGuide.xaml;UserControls\ucLogViewerSystem.xaml;UserControls\ucLogViewerUART.xaml;UserControls\ucLogViewerWPS.xaml;UserControls\ucConfigDUT.xaml;UserControls\ucTesting.xaml;
 
 False

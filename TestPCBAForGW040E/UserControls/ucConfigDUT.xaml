@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TestPCBAForGW040E.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
 
     <Border CornerRadius="5,5,5,5" Background="#FFFAFAFA">
         <Grid>
@@ -17,27 +17,27 @@
                 <StackPanel Margin="10,10,10,10">
                     <Label FontSize="15" FontWeight="Bold" Content="SerialPort"></Label>
                     <Label Content="Port Name:" FontSize="13" Margin="0,10,0,0"></Label>
-                    <ComboBox FontSize="13" FontWeight="Bold"></ComboBox>
+                    <ComboBox x:Name="cbbPortName" FontSize="13" FontWeight="Bold"></ComboBox>
                     <Label Content="Baud Rate:" FontSize="13" Margin="0,10,0,0"></Label>
-                    <ComboBox FontSize="13" FontWeight="Bold"></ComboBox>
+                    <ComboBox x:Name="cbbBaudRate" FontSize="13" FontWeight="Bold"></ComboBox>
 
                     <Label FontSize="15" FontWeight="Bold" Content="-"></Label>
 
-                    <Label FontSize="15" FontWeight="Bold" Content="Configure Info"></Label>
+                    <Label FontSize="15" FontWeight="Bold" Content="Properties"></Label>
                     <Label Content="IP Address:" FontSize="13" Margin="0,10,0,0"></Label>
-                    <TextBox FontSize="13" FontWeight="Bold"></TextBox>
+                    <TextBox FontSize="13" FontWeight="Bold" Text="{Binding Path=DUT_IPAddress, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
                     <Label Content="User:" FontSize="13" Margin="0,10,0,0"></Label>
-                    <TextBox FontSize="13" FontWeight="Bold"></TextBox>
+                    <TextBox FontSize="13" FontWeight="Bold" Text="{Binding Path=DUT_User,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
                     <Label Content="Password:" FontSize="13" Margin="0,10,0,0"></Label>
-                    <TextBox FontSize="13" FontWeight="Bold"></TextBox>
+                    <TextBox FontSize="13" FontWeight="Bold" Text="{Binding Path=DUT_Pass, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
                     <Label Content="The first 6 digits of the MAC Address:" FontSize="13" Margin="0,10,0,0"></Label>
-                    <TextBox FontSize="13" FontWeight="Bold"></TextBox>
+                    <TextBox FontSize="13" FontWeight="Bold" Text="{Binding Path=DUT_MACFormat, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
                 </StackPanel>
             </ScrollViewer>
             <Grid Grid.Row="1" Background="#FF777777">
                 <WrapPanel HorizontalAlignment="Right" Margin="5,5,10,5">
-                    <Button x:Name="btnSave" FontSize="15"  Margin="10,0,0,0" Height="40" Width="80">Save</Button>
-                    <Button x:Name="btnDefault" FontSize="15" Margin="10,0,0,0" Height="40" Width="80">Default</Button>
+                    <Button Click="Button_Click" FontSize="15"  Margin="10,0,0,0" Height="40" Width="80">Save</Button>
+                    <Button Click="Button_Click" FontSize="15" Margin="10,0,0,0" Height="40" Width="80">Default</Button>
                 </WrapPanel>
             </Grid>
         </Grid>

@@ -16,12 +16,12 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0" FontSize="17">Log viewer: UART</Label>
             <ScrollViewer x:Name="uartScrollViewer" Grid.Row="1" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
-                <TextBox HorizontalScrollBarVisibility="Visible"  IsReadOnly="True" AcceptsReturn="True" Padding="10,10,10,10" Text="{Binding Path=logviewUART, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" TextWrapping="Wrap" Width="Auto" DataContextChanged="TextBox_DataContextChanged"></TextBox>
+                <TextBox HorizontalScrollBarVisibility="Visible"  IsReadOnly="True" AcceptsReturn="True" Padding="10,10,10,10" Text="{Binding Path=logviewUART, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" TextWrapping="Wrap" Width="Auto" TextChanged="TextBox_TextChanged"></TextBox>
             </ScrollViewer>
             <Grid Grid.Row="2" Background="#FF777777">
                 <WrapPanel HorizontalAlignment="Right" Margin="5,5,10,5">
-                    <Button x:Name="btnCopy" FontSize="15"  Margin="10,0,0,0" Height="40" Width="80">Copy</Button>
-                    <Button x:Name="btnClear" FontSize="15" Margin="10,0,0,0" Height="40" Width="80">Clear</Button>
+                    <Button Click="Button_Click" FontSize="15"  Margin="10,0,0,0" Height="40" Width="80">Copy</Button>
+                    <Button Click="Button_Click" FontSize="15" Margin="10,0,0,0" Height="40" Width="80">Clear</Button>
                 </WrapPanel>
             </Grid>
         </Grid>

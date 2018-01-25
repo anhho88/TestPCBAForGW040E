@@ -243,6 +243,7 @@ namespace TestPCBAForGW040E.Functions {
                         }
                         if (index >= (tOut / 1000)) { _error = "Request time out."; break; }
                         string tmpStr = System.IO.File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + "wps.txt");
+                        GlobalData.logContent.logviewWPS = tmpStr;
                         if (tmpStr.ToUpper().Contains("ERROR") || tmpStr.Trim().Replace("\n", "").Replace("\r", "") == string.Empty) {
                             _error = tmpStr;
                             break;

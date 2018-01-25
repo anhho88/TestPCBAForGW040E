@@ -10,6 +10,8 @@
     <Border CornerRadius="5,5,5,5" Background="#FF777777">
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="3"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
@@ -59,8 +61,13 @@
                 </DataGrid.Columns>
 
             </DataGrid>-->
-           
-            <ScrollViewer  Grid.Row="0" Background="#FFFFFFFF">
+            <Grid Grid.Row="0">
+                <ScrollViewer>
+                    <TextBox Background="Transparent" Foreground="#FFC6FF00" AcceptsReturn="True">ERR: cai long ban gi vay</TextBox>
+                </ScrollViewer>
+            </Grid>
+            <GridSplitter Background="#FF00BFA5" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></GridSplitter>
+            <ScrollViewer  Grid.Row="2" Background="#FFFFFFFF">
                 <StackPanel x:Name="spTesting">
 
                     <!--Upload Firmware-->
@@ -100,7 +107,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Expander.Style>
-                        
+
                         <StackPanel Margin="20,5,0,5">
                             <DataGrid x:Name="fwDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus"  GridLinesVisibility="None">
                                 <DataGrid.Columns>
@@ -119,7 +126,7 @@
                                         <Setter Property="BorderBrush" Value="#FFDCDCDC"/>
                                     </Style>
                                 </DataGrid.CellStyle>
-                                
+
                                 <DataGrid.RowStyle>
                                     <Style TargetType="DataGridRow">
                                         <Style.Triggers>
@@ -179,7 +186,7 @@
                                         <Setter Property="BorderBrush" Value="#FFDCDCDC"/>
                                     </Style>
                                 </DataGrid.CellStyle>
-                                
+
                                 <DataGrid.RowStyle>
                                     <Style TargetType="DataGridRow">
                                         <Style.Triggers>
@@ -198,7 +205,7 @@
                                         </Style.Triggers>
                                     </Style>
                                 </DataGrid.RowStyle>
-                                
+
                             </DataGrid>
                         </StackPanel>
                     </Expander>
@@ -222,7 +229,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Expander.Style>
-                        
+
                         <StackPanel Margin="20,5,0,5">
                             <DataGrid x:Name="lanDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None">
                                 <DataGrid.Columns>
@@ -241,7 +248,7 @@
                                         <Setter Property="BorderBrush" Value="#FFDCDCDC"/>
                                     </Style>
                                 </DataGrid.CellStyle>
-                                
+
                                 <DataGrid.RowStyle>
                                     <Style TargetType="DataGridRow">
                                         <Style.Triggers>
@@ -260,7 +267,7 @@
                                         </Style.Triggers>
                                     </Style>
                                 </DataGrid.RowStyle>
-                                
+
                             </DataGrid>
                         </StackPanel>
                     </Expander>
@@ -284,7 +291,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Expander.Style>
-                        
+
                         <StackPanel Margin="20,5,0,5">
                             <DataGrid x:Name="usbDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None">
                                 <DataGrid.Columns>
@@ -303,7 +310,7 @@
                                         <Setter Property="BorderBrush" Value="#FFDCDCDC"/>
                                     </Style>
                                 </DataGrid.CellStyle>
-                                
+
                                 <DataGrid.RowStyle>
                                     <Style TargetType="DataGridRow">
                                         <Style.Triggers>
@@ -322,7 +329,7 @@
                                         </Style.Triggers>
                                     </Style>
                                 </DataGrid.RowStyle>
-                                
+
                             </DataGrid>
                         </StackPanel>
                     </Expander>
@@ -346,7 +353,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Expander.Style>
-                        
+
                         <StackPanel Margin="20,5,0,5">
                             <DataGrid x:Name="buttonDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None">
                                 <DataGrid.Columns>
@@ -365,7 +372,7 @@
                                         <Setter Property="BorderBrush" Value="#FFDCDCDC"/>
                                     </Style>
                                 </DataGrid.CellStyle>
-                                
+
                                 <DataGrid.RowStyle>
                                     <Style TargetType="DataGridRow">
                                         <Style.Triggers>
@@ -384,7 +391,7 @@
                                         </Style.Triggers>
                                     </Style>
                                 </DataGrid.RowStyle>
-                                
+
                             </DataGrid>
                         </StackPanel>
                     </Expander>
@@ -408,7 +415,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Expander.Style>
-                        
+
                         <StackPanel Margin="20,5,0,5">
                             <DataGrid x:Name="ledDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None">
                                 <DataGrid.Columns>
@@ -427,7 +434,7 @@
                                         <Setter Property="BorderBrush" Value="#FFDCDCDC"/>
                                     </Style>
                                 </DataGrid.CellStyle>
-                                
+
                                 <DataGrid.RowStyle>
                                     <Style TargetType="DataGridRow">
                                         <Style.Triggers>
@@ -446,18 +453,19 @@
                                         </Style.Triggers>
                                     </Style>
                                 </DataGrid.RowStyle>
-                                
+
                             </DataGrid>
                         </StackPanel>
                     </Expander>
 
                 </StackPanel>
+                
             </ScrollViewer>
-            
-            <Grid Grid.Row="1" Margin="10,5,10,5">
+
+            <Grid Grid.Row="3" Margin="10,5,10,5">
                 <Button x:Name="btnStart" Click="btnStart_Click" FontSize="15" HorizontalAlignment="Left" Margin="10,0,0,0" Height="40" Width="80">Start</Button>
                 <WrapPanel HorizontalAlignment="Right">
-                    <Button Click="Button_Click"  FontSize="15" HorizontalAlignment="Left" Margin="10,0,0,0" Height="40" Width="80">Test</Button>
+                    <Button Visibility="Visible" Click="Button_Click"  FontSize="15" HorizontalAlignment="Left" Margin="10,0,0,0" Height="40" Width="80">Test</Button>
                     <Button x:Name="btnConfig" FontSize="15" Click="btn_Click" Margin="10,0,0,0" Height="40" Width="80">Configure</Button>
                     <Button x:Name="btnDefault" FontSize="15" Click="btn_Click" Margin="10,0,0,0" Height="40" Width="80">Default</Button>
                 </WrapPanel>

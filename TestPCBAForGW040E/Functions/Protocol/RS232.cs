@@ -15,7 +15,7 @@ namespace TestPCBAForGW040E.Functions
         public RS232() {
             string message;
             if(!openSerialPort(out message)) {
-                MessageBox.Show(message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                GlobalData.logContent.logviewSystem += message;
             }
         }
 
@@ -54,6 +54,7 @@ namespace TestPCBAForGW040E.Functions
             string receiveData = s.ReadExisting();
             if (receiveData != string.Empty) {
                 GlobalData.logContent.logviewUART += receiveData;
+                GlobalData.uartData += receiveData;
             }
             Thread.Sleep(100);
         }

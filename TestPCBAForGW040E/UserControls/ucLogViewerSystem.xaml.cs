@@ -27,9 +27,22 @@ namespace TestPCBAForGW040E.UserControls
             this.DataContext = GlobalData.logContent;
         }
 
-        private void TextBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e) {
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            Button b = sender as Button;
+            switch (b.Content) {
+                case "Copy": {
+                        break;
+                    }
+                case "Clear": {
+                        break;
+                    }
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e) {
             TextBox t = sender as TextBox;
             uartScrollViewer.ScrollToEnd();
+            GlobalData.mainwindowInformation.SYSDataSign = true;
         }
     }
 }
