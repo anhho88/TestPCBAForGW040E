@@ -1,0 +1,166 @@
+﻿<Window x:Class="TestPCBAForGW040E.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestPCBAForGW040E"
+        xmlns:uc="clr-namespace:TestPCBAForGW040E.UserControls"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="500" MinWidth="700" Style="{StaticResource customWindow}">
+    <Border CornerRadius="5,5,5,5">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="{StaticResource colorRowBackgroundFail}"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=isPortOpenSuccess,UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Value="True">
+                        <Setter Property="Background" Value="#FF444444"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- bar title-->
+            <Border Grid.Row="0" CornerRadius="5,5,0,0" MouseDown="Border_MouseDown">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="600"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <WrapPanel>
+                            <Image Source="/Assets/Images/logovnpt.png" Height="40" HorizontalAlignment="Left"></Image>
+                            <Label Margin="20,5,0,0" Foreground="{StaticResource colorTextTitle}">Version 1.0.0.0</Label>
+                            <Label Margin="10,5,0,0" Foreground="{StaticResource colorTextTitle}">Build date 25/01/2018</Label>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Image Source="/Assets/Images/igate.png" Height="50"></Image>
+                            <Label FontSize="34" Foreground="{StaticResource colorTextTitle}" VerticalContentAlignment="Center" FontFamily="Arial" Margin="0,0,0,0" Content="Tool test PCBA for igate GW040E">
+                            </Label>
+                        </WrapPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <Label x:Name="btnClose" VerticalAlignment="Top" HorizontalAlignment="Right" Width="40" FontSize="20" FontWeight="Bold" Padding="10,5,0,0" Foreground="White" MouseDown="btnClose_MouseDown"  ToolTipService.ToolTip="Tắt ứng dụng">X</Label>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <!-- bar content-->
+            <Border Grid.Row="1" CornerRadius="0,0,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="3"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" BorderBrush="{StaticResource colorBorder}" BorderThickness="0.5" Margin="5,5,0,5" CornerRadius="5,5,5,5" Background="#FF777777">
+                        <StackPanel Margin="10,20,0,0">
+                            
+                            <!--Main program-->
+                            <Expander IsExpanded="True" Margin="0,0,0,10">
+                                <Expander.Header>
+                                    <TextBlock FontSize="18" FontWeight="Normal" Foreground="{StaticResource colorTextTitle}" Text="MAIN PROGRAM">
+                                        <TextBlock.Effect>
+                                            <DropShadowEffect/>
+                                        </TextBlock.Effect>
+                                    </TextBlock>
+                                </Expander.Header>
+                                <StackPanel Margin="20,5,0,5">
+                                    <TextBlock x:Name="tbTesting" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="Testing"
+                                               MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
+                                    </TextBlock>
+                                </StackPanel>
+                            </Expander>
+                            
+                            <!--Log viewer-->
+                            <Expander IsExpanded="True" Margin="0,0,0,10">
+                                <Expander.Header>
+                                    <TextBlock FontSize="18" FontWeight="Normal" Foreground="{StaticResource colorTextTitle}" Text="LOG VIEWER">
+                                        <TextBlock.Effect>
+                                            <DropShadowEffect/>
+                                        </TextBlock.Effect>
+                                    </TextBlock>
+                                </Expander.Header>
+                                <StackPanel Margin="20,5,0,5">
+                                    <TextBlock x:Name="tbLogViewerUART" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="UART"
+                                               MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
+                                    </TextBlock>
+                                    <TextBlock x:Name="tbLogViewerWPS" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="Window Power Shell"
+                                               MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
+                                        
+                                    </TextBlock>
+                                    <TextBlock x:Name="tbLogViewerSystem" FontWeight="Bold"  FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="System"
+                                                MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
+                                        
+                                    </TextBlock>
+                                </StackPanel>
+                            </Expander>
+                            
+                            <!--Config-->
+                            <Expander IsExpanded="True">
+                                <Expander.Header>
+                                    <TextBlock FontSize="18" FontWeight="Normal" Foreground="{StaticResource colorTextTitle}" Text="CONFIG">
+                                        <TextBlock.Effect>
+                                            <DropShadowEffect/>
+                                        </TextBlock.Effect>
+                                    </TextBlock>
+                                </Expander.Header>
+                                <StackPanel Margin="20,5,0,5">
+                                    <TextBlock x:Name="tbSettingsDUT" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="DUT"
+                                               MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
+
+                                    </TextBlock>
+                                </StackPanel>
+                            </Expander>
+
+                            <!--Help-->
+                            <Expander IsExpanded="True">
+                                <Expander.Header>
+                                    <TextBlock FontSize="18" FontWeight="Normal" Foreground="{StaticResource colorTextTitle}" Text="HELP">
+                                        <TextBlock.Effect>
+                                            <DropShadowEffect/>
+                                        </TextBlock.Effect>
+                                    </TextBlock>
+                                </Expander.Header>
+                                <StackPanel Margin="20,5,0,5">
+                                    <TextBlock x:Name="tbHelpUserGuide" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="User Guide"
+                                               MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
+
+                                    </TextBlock>
+                                    <TextBlock x:Name="tbHelpHistory" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="History"
+                                               MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
+
+                                    </TextBlock>
+                                    <TextBlock x:Name="tbHelpAbout" FontWeight="Bold" FontSize="16" Foreground="{StaticResource colorTextTitle}" Text="About"
+                                               MouseMove="TextBlock_MouseMove" MouseLeave="TextBlock_MouseLeave" MouseDown="TextBlock_MouseDown">
+
+                                    </TextBlock>
+                                </StackPanel>
+                            </Expander>
+                            
+                        </StackPanel>
+                    </Border>
+                    <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Background="#FF444444"></GridSplitter>
+                    <Border Grid.Column="2" Background="{StaticResource colorBackground}" BorderBrush="{StaticResource colorBorder}" BorderThickness="0.5" Margin="0,5,5,5" CornerRadius="5,5,5,5">
+                        <Grid>
+                            <uc:ucHelpAbout x:Name="ucHelpAbout"></uc:ucHelpAbout>
+                            <uc:ucHelpHistory x:Name="ucHelpHistory"></uc:ucHelpHistory>
+                            <uc:ucHelpUserGuide x:Name="ucHelpUserGuide"></uc:ucHelpUserGuide>
+                            <uc:ucConfigDUT x:Name="ucConfigDUT"></uc:ucConfigDUT>
+                            <uc:ucLogViewerSystem x:Name="ucLogViewerSystem"></uc:ucLogViewerSystem>
+                            <uc:ucLogViewerWPS x:Name="ucLogViewerWPS"></uc:ucLogViewerWPS>
+                            <uc:ucLogViewerUART x:Name="ucLogViewerUART"></uc:ucLogViewerUART>
+                            <uc:ucTesting x:Name="ucTesting"></uc:ucTesting>
+                        </Grid>
+                    </Border>
+                </Grid>
+               
+            </Border>
+        </Grid>
+
+    </Border>
+</Window>

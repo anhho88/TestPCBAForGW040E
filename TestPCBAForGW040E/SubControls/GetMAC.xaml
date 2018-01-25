@@ -1,0 +1,25 @@
+﻿<Window x:Class="TestPCBAForGW040E.GetMAC"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestPCBAForGW040E"
+        mc:Ignorable="d"
+        Title="GetMAC" Height="100" Width="300" Style="{StaticResource customWindow}" WindowStartupLocation="CenterScreen">
+    
+    <Border CornerRadius="5,5,5,5" Background="#db6c11"
+            BorderBrush="{StaticResource colorBorder}" BorderThickness="0.5,0.5,0.5,0.5"
+            >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <WrapPanel Grid.Row="0">
+                <Label FontSize="25" Foreground="{StaticResource colorTextWait}">Nhập địa chỉ MAC:</Label>
+                <Label FontSize="25" Foreground="{StaticResource colorTextWait}" Content="{Binding time, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></Label>
+            </WrapPanel>
+            <TextBox CharacterCasing="Upper" x:Name="txtMacAddress" Margin="2,2,2,2" Grid.Row="1" FontSize="30" Background="{StaticResource colorBackground}"></TextBox>
+        </Grid>
+    </Border>
+</Window>

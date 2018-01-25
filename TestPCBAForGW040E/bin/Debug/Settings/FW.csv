@@ -1,0 +1,5 @@
+INDEX,STEPNAME,STANDARD,ACTUAL,RETRY,TIMEOUT,JUDGED
+1,Wait DUT online,-,?,-,30000,?
+2,Access to uboot,bldr>,?,3,3000,?
+3,Set FTP server ip address,Change IP address to 192.168.1.1,?,3,1000,?
+4,Put firmware through window power shell,Success,?,3,120000,?

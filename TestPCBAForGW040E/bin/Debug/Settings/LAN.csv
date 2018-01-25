@@ -1,0 +1,12 @@
+INDEX,STEPNAME,STANDARD,ACTUAL,RETRY,TIMEOUT,JUDGED
+1,Open DUT serial port,true,?,3,1000,?
+2,Wait 5s,Success,?,-,-,?
+3,Plugin LAN port 1,Link State: LAN_1 up,?,3,30000,?
+4,Plugout LAN port 1,Link State: LAN_1 down,?,3,30000,?
+5,Plugin LAN port 2,Link State: LAN_2 up,?,3,30000,?
+6,Plugout LAN port 2,Link State: LAN_2 down,?,3,30000,?
+7,Plugin LAN port 3,Link State: LAN_3 up,?,3,30000,?
+8,Plugout LAN port 3,Link State: LAN_3 down,?,3,30000,?
+9,Plugin LAN port 4,Link State: LAN_4 up,?,3,30000,?
+10,Plugout LAN port 4,Link State: LAN_4 down,?,3,30000,?
+11,Close DUT serial port,Success,?,3,1000,?
