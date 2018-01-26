@@ -155,7 +155,23 @@
                             <WrapPanel HorizontalAlignment="Left">
                                 <CheckBox x:Name="ckMAC" Margin="10,0,0,0" IsEnabled="False" IsChecked="{Binding Path=flagMAC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontWeight="Bold" VerticalAlignment="Top" Style="{StaticResource androidCheckBox}"></CheckBox>
                                 <TextBlock FontSize="14" FontWeight="Bold" Foreground="{Binding ElementName=tbMACstatus, Path=Foreground, Mode=OneWay}" Text="WRITE MAC ADDRESS"/>
-                                <TextBlock x:Name="tbMACstatus" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" Foreground="Black"/>
+                                <TextBlock x:Name="tbMACstatus" Height="20" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" Text="{Binding Path=macStatusContent, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding macStatusContent}" Value="=> Waiting...">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextWait}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding macStatusContent}" Value="=> FAIL">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextNG}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding macStatusContent}" Value="=> PASS">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextOK}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                             </WrapPanel>
                         </Expander.Header>
                         <Expander.Style>
@@ -216,7 +232,23 @@
                             <WrapPanel HorizontalAlignment="Left">
                                 <CheckBox x:Name="ckLAN" Margin="10,0,0,0" IsEnabled="False" IsChecked="{Binding Path=flagLAN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontWeight="Bold" VerticalAlignment="Top" Style="{StaticResource androidCheckBox}"></CheckBox>
                                 <TextBlock FontSize="14" FontWeight="Bold" Foreground="{Binding ElementName=tbLANstatus, Path=Foreground, Mode=OneWay}" Text="CHECK LAN"/>
-                                <TextBlock x:Name="tbLANstatus" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" Foreground="Black"/>
+                                <TextBlock x:Name="tbLANstatus" Height="20" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" Text="{Binding Path=lanStatusContent, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding lanStatusContent}" Value="=> Waiting...">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextWait}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding lanStatusContent}" Value="=> FAIL">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextNG}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding lanStatusContent}" Value="=> PASS">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextOK}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                             </WrapPanel>
                         </Expander.Header>
                         <Expander.Style>
@@ -278,7 +310,23 @@
                             <WrapPanel HorizontalAlignment="Left">
                                 <CheckBox x:Name="ckUSB" Margin="10,0,0,0" IsEnabled="False" IsChecked="{Binding Path=flagUSB, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontWeight="Bold" VerticalAlignment="Top" Style="{StaticResource androidCheckBox}"></CheckBox>
                                 <TextBlock FontSize="14" FontWeight="Bold" Foreground="{Binding ElementName=tbUSBstatus, Path=Foreground, Mode=OneWay}" Text="CHECK USB 3.0"></TextBlock>
-                                <TextBlock x:Name="tbUSBstatus" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" Foreground="Black"/>
+                                <TextBlock x:Name="tbUSBstatus" Height="20" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" Text="{Binding Path=usbStatusContent, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding usbStatusContent}" Value="=> Waiting...">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextWait}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding usbStatusContent}" Value="=> FAIL">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextNG}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding usbStatusContent}" Value="=> PASS">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextOK}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                             </WrapPanel>
                         </Expander.Header>
                         <Expander.Style>
@@ -340,7 +388,23 @@
                             <WrapPanel HorizontalAlignment="Left">
                                 <CheckBox x:Name="ckBUTTON" Margin="10,0,0,0" IsEnabled="False" IsChecked="{Binding Path=flagBUTTON, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontWeight="Bold" VerticalAlignment="Top" Style="{StaticResource androidCheckBox}"></CheckBox>
                                 <TextBlock FontSize="14" FontWeight="Bold" Foreground="{Binding ElementName=tbBUTTONstatus, Path=Foreground, Mode=OneWay}" Text="CHECK BUTTONs"></TextBlock>
-                                <TextBlock x:Name="tbBUTTONstatus" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" Foreground="Black"/>
+                                <TextBlock x:Name="tbBUTTONstatus" Height="20" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" Text="{Binding Path=buttonStatusContent, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding buttonStatusContent}" Value="=> Waiting...">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextWait}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding buttonStatusContent}" Value="=> FAIL">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextNG}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding buttonStatusContent}" Value="=> PASS">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextOK}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                             </WrapPanel>
                         </Expander.Header>
                         <Expander.Style>
@@ -402,7 +466,23 @@
                             <WrapPanel HorizontalAlignment="Left">
                                 <CheckBox x:Name="ckLED" Margin="10,0,0,0" IsEnabled="False" IsChecked="{Binding Path=flagLED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontWeight="Bold" VerticalAlignment="Top" Style="{StaticResource androidCheckBox}"></CheckBox>
                                 <TextBlock FontSize="14" FontWeight="Bold" Foreground="{Binding ElementName=tbLEDstatus, Path=Foreground, Mode=OneWay}" Text="CHECK LEDs"></TextBlock>
-                                <TextBlock x:Name="tbLEDstatus" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" Foreground="Black"/>
+                                <TextBlock x:Name="tbLEDstatus" Height="20" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" Text="{Binding Path=ledStatusContent, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ledStatusContent}" Value="=> Waiting...">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextWait}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding ledStatusContent}" Value="=> FAIL">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextNG}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding ledStatusContent}" Value="=> PASS">
+                                                    <Setter Property="Foreground" Value="{StaticResource colorTextOK}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                             </WrapPanel>
                         </Expander.Header>
                         <Expander.Style>

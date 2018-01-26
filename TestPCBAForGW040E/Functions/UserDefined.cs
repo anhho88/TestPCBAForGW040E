@@ -221,6 +221,13 @@ namespace TestPCBAForGW040E.Functions {
                 GlobalData.checkLedContent[i].ACTUAL = "?";
                 GlobalData.checkLedContent[i].JUDGED = "?";
             }
+
+            GlobalData.TestingContent.fwStatusContent = "";
+            GlobalData.TestingContent.macStatusContent = "";
+            GlobalData.TestingContent.lanStatusContent = "";
+            GlobalData.TestingContent.usbStatusContent = "";
+            GlobalData.TestingContent.buttonStatusContent = "";
+            GlobalData.TestingContent.ledStatusContent = "";
         }
 
     }

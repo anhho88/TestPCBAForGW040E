@@ -1,11 +1,9 @@
 INDEX,STEPNAME,STANDARD,ACTUAL,RETRY,TIMEOUT,JUDGED
 1,Get MAC address,-,?,3,30000,?
-2,Open DUT serial port,true,?,3,1000,?
-3,Wait DUT online,-,?,-,30000,?
-4,Wait DUT boot complete,-,?,-,120000,?
-5,Login to DUT,root login  on `console',?,-,10000,?
-6,Set MAC for ethernet 0,new mac addr = xx:xx:xx:xx:xx:xx,?,-,3000,?
-7,Wait DUT boot complete,-,?,-,120000,?
-8,Login to DUT,root login  on `console',?,-,10000,?
-9,Confirm MAC,Link encap:Ethernet  HWaddr xx:xx:xx:xx:xx:xx,?,-,3000,?
-10,Close DUT serial port,Success,?,3,1000,?
+2,Wait DUT online,-,?,-,30000,?
+3,Wait DUT boot complete,-,?,-,120000,?
+4,Login to DUT,root login  on `console',?,-,10000,?
+5,Set MAC for ethernet 0,new mac addr = xx:xx:xx:xx:xx:xx,?,-,3000,?
+6,Wait DUT boot complete,-,?,-,120000,?
+7,Login to DUT,root login  on `console',?,-,10000,?
+8,Confirm MAC,Link encap:Ethernet  HWaddr xx:xx:xx:xx:xx:xx,?,-,3000,?

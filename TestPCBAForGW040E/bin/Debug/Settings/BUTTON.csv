@@ -1,8 +1,5 @@
 INDEX,STEPNAME,STANDARD,ACTUAL,RETRY,TIMEOUT,JUDGED
-1,Open DUT serial port,Success,?,3,1000,?
-2,Wait DUT online,Success,?,-,5000,?
-3,Access to DUT,Success,?,3,1000,?
-4,Set FTP server ip address,Success,?,3,1000,?
-5,Change ip address,host 192.168.1.1 is alive,?,3,1000,?
-6,Put firmware,Success,?,3,120000,?
-7,Close DUT serial port,Success,?,3,1000,?
+1,Wait DUT online,-,?,-,30000,?
+2,Wait wifi boot complete,-,?,-,120000,?
+3,check wps button,-,?,-,120000,?
+4,check reset button,-,?,-,120000,?

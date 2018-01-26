@@ -7,7 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Assets/ResourceDictionarys/customWindow.xaml"/>
-                <ResourceDictionary Source="Assets/ResourceDictionarys/ToggleButton.xaml"/>
+                <ResourceDictionary Source="Assets/ResourceDictionarys/Textbox.xaml"/>
                 <ResourceDictionary Source="Assets/ResourceDictionarys/CheckBox.xaml"/>
 
                 <!--Color resources-->

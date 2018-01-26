@@ -58,6 +58,8 @@ namespace TestPCBAForGW040E.UserControls {
                         break;
                     }
                 case "Default": {
+                        GlobalData.loadtestcasecontent.reload();
+                        this.refreshGrid();
                         foreach (CheckBox c in checkboxControls) {
                             c.IsChecked = true;
                         }
@@ -71,9 +73,18 @@ namespace TestPCBAForGW040E.UserControls {
             datagrid.UnselectAllCells();
         }
 
+        private void refreshGrid() {
+            this.fwDataGrid.Items.Refresh();
+            this.macDataGrid.Items.Refresh();
+            this.lanDataGrid.Items.Refresh();
+            this.usbDataGrid.Items.Refresh();
+            this.buttonDataGrid.Items.Refresh();
+            this.ledDataGrid.Items.Refresh();
+        }
+
         private void btnStart_Click(object sender, RoutedEventArgs e) {
             GlobalData.loadtestcasecontent.reload();
-            this.fwDataGrid.Items.Refresh();
+            this.refreshGrid();
             ///////////////////////////////////////////////////////////////////////////
             Thread t = new Thread(new ThreadStart(() => {
                 string errmessage;
@@ -89,7 +100,7 @@ namespace TestPCBAForGW040E.UserControls {
                 while (!_flag) {
                     try {
                         Application.Current.Dispatcher.BeginInvoke(new Action(() => {
-                            this.fwDataGrid.Items.Refresh();
+                            this.refreshGrid();
                         }));
                     }
                     catch { }
@@ -104,10 +115,8 @@ namespace TestPCBAForGW040E.UserControls {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            waitDUT w = new waitDUT("30000");
+            PressWPS w = new PressWPS();
             w.ShowDialog();
-            //GlobalData.uploadFWContent[0].JUDGED = "PASS";
-            //this.fwDataGrid.Items.Refresh();
         }
     }
 }

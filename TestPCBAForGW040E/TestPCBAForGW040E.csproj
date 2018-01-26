@@ -58,12 +58,23 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Functions\Base\baseFunctions.cs" />
+    <Compile Include="Functions\Excute\exCheckButton.cs" />
+    <Compile Include="Functions\Excute\exCheckLAN.cs" />
+    <Compile Include="Functions\Excute\exCheckLED.cs" />
+    <Compile Include="Functions\Excute\exCheckUSB.cs" />
     <Compile Include="Functions\Excute\exUploadFW.cs" />
+    <Compile Include="Functions\Excute\exWriteMAC.cs" />
     <Compile Include="Functions\Excute\mainProgram.cs" />
     <Compile Include="Functions\GlobalData.cs" />
     <Compile Include="Functions\Protocol\RS232.cs" />
     <Compile Include="Functions\UserDefined.cs" />
     <Compile Include="SubControls\GetMAC.xaml.cs" />
+    <Compile Include="SubControls\PlugLAN.xaml.cs">
+      <DependentUpon>PlugLAN.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubControls\PressWPS.xaml.cs">
+      <DependentUpon>PressWPS.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SubControls\waitDUT.xaml.cs" />
     <Compile Include="UserControls\ucHelpAbout.xaml.cs">
       <DependentUpon>ucHelpAbout.xaml</DependentUpon>
@@ -148,6 +159,14 @@
     <Page Include="SubControls\GetMAC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SubControls\PlugLAN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubControls\PressWPS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SubControls\waitDUT.xaml">
       <Generator>MSBuild:Compile</Generator>

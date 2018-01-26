@@ -12,7 +12,7 @@
     <Border CornerRadius="5,5,5,5">
         <Border.Style>
             <Style TargetType="Border">
-                <Setter Property="Background" Value="#FF444444"/>
+                <Setter Property="Background" Value="{StaticResource colorRowBackgroundFail}"/>
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding Path=isPortOpenSuccess,UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Value="True">
                         <Setter Property="Background" Value="#FF444444"/>
@@ -48,7 +48,7 @@
                     </StackPanel>
                     <StackPanel Grid.Column="1">
                         <Label x:Name="btnClose" VerticalAlignment="Top" HorizontalAlignment="Right" Width="40" FontSize="20" FontWeight="Bold" Padding="10,5,0,0" Foreground="White" MouseDown="btnClose_MouseDown"  ToolTipService.ToolTip="Tắt ứng dụng">X</Label>
-                        <Label x:Name="lblstatus" HorizontalAlignment="Right" Margin="0,-10,10,0" Content="{Binding Path=statustestContent, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Padding="0" FontSize="65" FontWeight="Bold">
+                        <Label x:Name="lblstatus" HorizontalAlignment="Right" Margin="0,-10,40,0" Content="{Binding Path=statustestContent, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Padding="0" FontSize="65" FontWeight="Bold">
                             <Label.Style>
                                 <Style TargetType="Label">
                                     <Setter Property="Foreground" Value="#FF444444"/>
@@ -91,7 +91,7 @@
                                 </Expander.Header>
                                 <StackPanel Margin="0,5,0,5">
                                     <WrapPanel>
-                                        <fa:ImageAwesome Icon="Cog" Foreground="#FFC6FF00" SpinDuration="5" Spin="{Binding Path=IsTesting, Mode=OneWay}" Height="20" Width="20">
+                                        <fa:ImageAwesome Icon="Cog" Foreground="#FFC6FF00" SpinDuration="3" Spin="{Binding Path=IsTesting, Mode=OneWay}" Height="20" Width="20">
                                             <Image.Style>
                                                 <Style TargetType="Image">
                                                     <Setter Property="Visibility" Value="Hidden"/>

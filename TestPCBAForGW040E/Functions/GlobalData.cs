@@ -32,7 +32,8 @@ namespace TestPCBAForGW040E.Functions
         public static string uartData = "";
         public static RS232 serialPort = new RS232();
 
-        
+        public static string macAddress = "";
+        public static string lanResult = "";
 
     }
 }

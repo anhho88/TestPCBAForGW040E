@@ -1,5 +1,4 @@
 INDEX,STEPNAME,STANDARD,ACTUAL,RETRY,TIMEOUT,JUDGED
-1,Open DUT serial port,Success,?,3,1000,?
-2,Wait 30s,Success,?,-,-,?
+1,Wait DUT online,-,?,-,30000,?
+2,Wait DUT boot complete,-,?,-,120000,?
 3,Plugin USB HUB,Attached SCSI removable disk,?,3,30000,?
-11,Close DUT serial port,Success,?,3,1000,?
