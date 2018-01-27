@@ -69,6 +69,9 @@
     <Compile Include="Functions\Protocol\RS232.cs" />
     <Compile Include="Functions\UserDefined.cs" />
     <Compile Include="SubControls\GetMAC.xaml.cs" />
+    <Compile Include="SubControls\LED.xaml.cs">
+      <DependentUpon>LED.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SubControls\PlugLAN.xaml.cs">
       <DependentUpon>PlugLAN.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,10 @@
     <Page Include="SubControls\GetMAC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SubControls\LED.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SubControls\PlugLAN.xaml">
       <SubType>Designer</SubType>

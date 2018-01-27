@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="Assets/ResourceDictionarys/customWindow.xaml"/>
                 <ResourceDictionary Source="Assets/ResourceDictionarys/Textbox.xaml"/>
                 <ResourceDictionary Source="Assets/ResourceDictionarys/CheckBox.xaml"/>
+                <ResourceDictionary Source="Assets/ResourceDictionarys/ToggleButton.xaml"/>
 
                 <!--Color resources-->
                 <ResourceDictionary>

@@ -20,7 +20,7 @@
 
     <Style x:Key="androidToggleButton" TargetType="ToggleButton">
         <Setter Property="Height" Value="30"/>
-        <Setter Property="Width" Value="70"/>
+        <Setter Property="Width" Value="100"/>
         <Setter Property="Background" Value="#d9d9d9"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderBrush" Value="#d9d9d9" />
@@ -75,7 +75,7 @@
                           Grid.Column="1" Grid.ColumnSpan="2"
                           Data="M0,0 L30,0 30,30 -30,30 z"
                           Stretch="Fill"
-                          Fill="#B8D04C" HorizontalAlignment="Right" />
+                          Fill="#FF65FF9B" HorizontalAlignment="Right" />
                         <!--Fill="#38abcf" HorizontalAlignment="Right" />-->
 
                         <Border Name="BorderLeftDown"
@@ -88,14 +88,14 @@
                             Background="{TemplateBinding BorderBrush}"
                             Opacity="{Binding ElementName=ShapeOn, Path=Opacity}"/>
 
-                        <TextBlock Text="ON" Grid.Column="2"
+                        <TextBlock Text="PASS" Grid.Column="2"
                                Name="TextBlockOn"
                                FontWeight="Bold"
                                Foreground="{TemplateBinding Foreground}"
                                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,5,0"
                                Opacity="{Binding ElementName=ShapeOn, Path=Opacity}"/>
 
-                        <TextBlock Text="OFF" Grid.Column="0"
+                        <TextBlock Text="FAIL" Grid.Column="0"
                                Name="TextBlockOff"
                                FontWeight="Bold"
                                Foreground="{TemplateBinding Foreground}"

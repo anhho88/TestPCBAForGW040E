@@ -37,7 +37,7 @@ namespace TestPCBAForGW040E.Functions
             }
             //Check LEDs
             if (settings.flag_LED == "1") {
-
+                if (!(new exCheckLED().checkLEDStateOfDUT(out errorMessage))) goto NG;
             } 
             goto OK;
             NG:

@@ -34,6 +34,8 @@ namespace TestPCBAForGW040E.Functions
 
         public static string macAddress = "";
         public static string lanResult = "";
-
+        public static string buttonResult = "";
+        public static string usbResult = "";
+        public static string ledResult = "";
     }
 }

@@ -15,6 +15,10 @@ namespace TestPCBAForGW040E.Functions {
                 if (!rewait_DUT_Online(GlobalData.checkButtonContent[0], out _error)) goto NG;
                 //Wait DUT boot completed
                 if (!wait_DUTWifiBootComplete(GlobalData.checkButtonContent[1], out _error)) goto NG;
+                //check wps button
+                if (!check_WPSbutton(GlobalData.checkButtonContent[2], out _error)) goto NG;
+                //check reset button
+                if (!check_Resetbutton(GlobalData.checkButtonContent[3], out _error)) goto NG;
                 goto OK;
             }
             catch (Exception ex) {

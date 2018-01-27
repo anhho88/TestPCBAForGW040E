@@ -9,11 +9,29 @@
 
     <Border CornerRadius="40" Background="White"
             BorderBrush="{StaticResource colorBorder}" BorderThickness="3,3,3,9">
-        <WrapPanel Margin="30,10,10,0">
-            <Label FontSize="32" FontWeight="Bold" Foreground="#f2621f" Content="Nhấn và giữ nút WPS: 15s"></Label>
-            <Label> time out :</Label>
-            <Label Content="0"></Label>
-        </WrapPanel>
+        <StackPanel Margin="30,10,10,0">
+            <Label FontSize="32" FontWeight="Bold" Foreground="#f2621f">
+                <Label.Style>
+                    <Style TargetType="Label">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding title}" Value="0">
+                                <Setter Property="Content" Value="Nhấn và giữ nút WPS: 15s"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding title}" Value="1">
+                                <Setter Property="Content" Value="Nhấn và giữ nút Reset: 10s"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding title}" Value="2">
+                                <Setter Property="Content" Value="Cắm USB Hub vào DUT"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+            <WrapPanel>
+                <Label FontSize="20" Margin="0,-5,0,0">time out :</Label>
+                <Label FontSize="20" Margin="0,-5,0,0" Content="{Binding Path=time, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></Label>
+            </WrapPanel>
+        </StackPanel>
     </Border>
     
 </Window>

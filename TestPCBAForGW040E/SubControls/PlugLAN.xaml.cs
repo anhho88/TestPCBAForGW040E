@@ -22,6 +22,75 @@ namespace TestPCBAForGW040E {
     /// </summary>
     public partial class PlugLAN : Window {
 
+        class LANData : INotifyPropertyChanged {
+
+            public event PropertyChangedEventHandler PropertyChanged;
+            protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
+                PropertyChangedEventHandler handler = PropertyChanged;
+                if (handler != null) {
+                    handler(this, new PropertyChangedEventArgs(propertyName));
+                }
+            }
+
+            private string _time;
+            private bool _inout1;
+            private bool _inout2;
+            private bool _inout3;
+            private bool _inout4;
+
+            public string time {
+                get { return _time; }
+                set {
+                    _time = value;
+                    OnPropertyChanged(nameof(time));
+                }
+            }
+
+            public bool INOUT1 {
+                get { return _inout1; }
+                set {
+                    _inout1 = value;
+                    OnPropertyChanged(nameof(INOUT1));
+                }
+            }
+            public bool INOUT2 {
+                get { return _inout2; }
+                set {
+                    _inout2 = value;
+                    OnPropertyChanged(nameof(INOUT2));
+                }
+            }
+            public bool INOUT3 {
+                get { return _inout3; }
+                set {
+                    _inout3 = value;
+                    OnPropertyChanged(nameof(INOUT3));
+                }
+            }
+            public bool INOUT4 {
+                get { return _inout4; }
+                set {
+                    _inout4 = value;
+                    OnPropertyChanged(nameof(INOUT4));
+                }
+            }
+
+            public void Off() {
+                this.INOUT1 = false;
+                this.INOUT2 = false;
+                this.INOUT3 = false;
+                this.INOUT4 = false;
+            }
+
+            public void On() {
+                this.INOUT1 = true;
+                this.INOUT2 = true;
+                this.INOUT3 = true;
+                this.INOUT4 = true;
+            }
+
+        }
+
         int InOut = 0, timeOut = 0;
         LANData lan = new LANData();
 
@@ -84,73 +153,6 @@ namespace TestPCBAForGW040E {
         }
     }
 
-    public class LANData : INotifyPropertyChanged {
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        private string _time;
-        private bool _inout1;
-        private bool _inout2;
-        private bool _inout3;
-        private bool _inout4;
-
-        public string time {
-            get { return _time; }
-            set {
-                _time = value;
-                OnPropertyChanged(nameof(time));
-            }
-        }
-
-        public bool INOUT1 {
-            get { return _inout1; }
-            set {
-                _inout1 = value;
-                OnPropertyChanged(nameof(INOUT1));
-            }
-        }
-        public bool INOUT2 {
-            get { return _inout2; }
-            set {
-                _inout2 = value;
-                OnPropertyChanged(nameof(INOUT2));
-            }
-        }
-        public bool INOUT3 {
-            get { return _inout3; }
-            set {
-                _inout3 = value;
-                OnPropertyChanged(nameof(INOUT3));
-            }
-        }
-        public bool INOUT4 {
-            get { return _inout4; }
-            set {
-                _inout4 = value;
-                OnPropertyChanged(nameof(INOUT4));
-            }
-        }
-
-        public void Off() {
-            this.INOUT1 = false;
-            this.INOUT2 = false;
-            this.INOUT3 = false;
-            this.INOUT4 = false;
-        }
-
-        public void On() {
-            this.INOUT1 = true;
-            this.INOUT2 = true;
-            this.INOUT3 = true;
-            this.INOUT4 = true;
-        }
-
-    }
+    
 
 }

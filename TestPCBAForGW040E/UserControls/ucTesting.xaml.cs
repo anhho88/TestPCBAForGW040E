@@ -115,7 +115,7 @@ namespace TestPCBAForGW040E.UserControls {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            PressWPS w = new PressWPS();
+            LED w = new LED(120000);
             w.ShowDialog();
         }
     }

@@ -12,6 +12,8 @@ namespace TestPCBAForGW040E.Functions {
         waitDUT wait = null;
         GetMAC gm = null;
         PlugLAN pl = null;
+        PressWPS pw = null;
+        LED led = null;
 
         private void callWaiDUT(string timeout) {
             try {
@@ -69,6 +71,45 @@ namespace TestPCBAForGW040E.Functions {
             }
             catch { }
         }
+
+        private void callPressWPS(int title, int timeout) {
+            try {
+                Application.Current.Dispatcher.BeginInvoke(new Action(() => {
+                    pw = new PressWPS(title, timeout);
+                    pw.ShowDialog();
+                }));
+            }
+            catch { }
+        }
+
+        private void destroyPressWPS() {
+            try {
+                Application.Current.Dispatcher.BeginInvoke(new Action(() => {
+                    pw.Close();
+                }));
+            }
+            catch { }
+        }
+
+        private void callLED(int timeout) {
+            try {
+                Application.Current.Dispatcher.BeginInvoke(new Action(() => {
+                    led = new LED(timeout);
+                    led.ShowDialog();
+                }));
+            }
+            catch { }
+        }
+
+        private void destroyLED() {
+            try {
+                Application.Current.Dispatcher.BeginInvoke(new Action(() => {
+                    led.Close();
+                }));
+            }
+            catch { }
+        }
+
 
         private bool accessDUT(out string message) {
             message = "";
@@ -548,13 +589,13 @@ namespace TestPCBAForGW040E.Functions {
                 while (!_flag) {
                     GlobalData.logContent.logviewUART = "";
                     while (GlobalData.logContent.logviewUART.Length == 0) {
-                        Thread.Sleep(1000);
-                        if (index >= (tOut / 1000)) { _error = "Request time out."; break; }
+                        Thread.Sleep(100);
+                        if (index >= (tOut / 100)) { _error = "Request time out."; break; }
                         else index++;
                     }
                     destroyWaitDUT();
-                    content.ACTUAL = (index * 1000).ToString();
-                    if (index < (tOut / 1000)) _flag = true;
+                    content.ACTUAL = (index * 100).ToString();
+                    if (index < (tOut / 100)) _flag = true;
                     else break;
                 }
                 goto END;
@@ -625,13 +666,13 @@ namespace TestPCBAForGW040E.Functions {
                 callPlugLAN(0, tOut);
                 while (!_flag) {
                     while (GlobalData.lanResult.Length == 0) {
-                        Thread.Sleep(1000);
-                        if (index >= (tOut / 1000)) { _error = "Request time out."; break; }
+                        Thread.Sleep(100);
+                        if (index >= (tOut / 100)) { _error = "Request time out."; break; }
                         else index++;
                     }
                     destroyPlugLAN();
-                    content.ACTUAL = (index * 1000).ToString();
-                    if (index < (tOut / 1000)) {
+                    content.ACTUAL = (index * 100).ToString();
+                    if (index < (tOut / 100)) {
                         if (GlobalData.lanResult == "OK") _flag = true;
                         else break;
                     }
@@ -663,13 +704,13 @@ namespace TestPCBAForGW040E.Functions {
                 callPlugLAN(1, tOut);
                 while (!_flag) {
                     while (GlobalData.lanResult.Length == 0) {
-                        Thread.Sleep(1000);
-                        if (index >= (tOut / 1000)) { _error = "Request time out."; break; }
+                        Thread.Sleep(100);
+                        if (index >= (tOut / 100)) { _error = "Request time out."; break; }
                         else index++;
                     }
                     destroyPlugLAN();
-                    content.ACTUAL = (index * 1000).ToString();
-                    if (index < (tOut / 1000)) {
+                    content.ACTUAL = (index * 100).ToString();
+                    if (index < (tOut / 100)) {
                         if (GlobalData.lanResult == "OK") _flag = true;
                         else break;
                     }
@@ -715,6 +756,158 @@ namespace TestPCBAForGW040E.Functions {
                     }
                     content.ACTUAL = (index * 1000).ToString();
                     if (index < (tOut / 1000)) _flag = true;
+                    else break;
+                }
+                goto END;
+            }
+            catch (Exception ex) {
+                _error = ex.ToString();
+                goto END;
+            }
+            END:
+            {
+                content.JUDGED = _flag == true ? "PASS" : "FAIL";
+                return _flag;
+            }
+        }
+
+        protected bool check_WPSbutton(ContentGridFields content, out string _error) {
+            _error = "";
+            bool _flag = false;
+            content.JUDGED = "waiting...";
+            try {
+                string stvalue = content.STANDARD;
+                int tOut = content.TIMEOUT == "-" ? 1000 : int.Parse(content.TIMEOUT);
+                int tRetry = content.RETRY == "-" ? 0 : int.Parse(content.RETRY);
+                int index = 0;
+                GlobalData.buttonResult = "";
+                callPressWPS(0, tOut);
+                while (!_flag) {
+                    while (GlobalData.buttonResult.Length == 0) {
+                        Thread.Sleep(100);
+                        if (index >= (tOut / 100)) { _error = "Request time out."; break; }
+                        else index++;
+                    }
+                    destroyPressWPS();
+                    content.ACTUAL = (index * 100).ToString();
+                    if (index < (tOut / 100)) {
+                        if (GlobalData.buttonResult == "OK") _flag = true;
+                        else break;
+                    }
+                    else break;
+                }
+                goto END;
+            }
+            catch (Exception ex) {
+                _error = ex.ToString();
+                goto END;
+            }
+            END:
+            {
+                content.JUDGED = _flag == true ? "PASS" : "FAIL";
+                return _flag;
+            }
+        }
+
+        protected bool check_Resetbutton(ContentGridFields content, out string _error) {
+            _error = "";
+            bool _flag = false;
+            content.JUDGED = "waiting...";
+            try {
+                string stvalue = content.STANDARD;
+                int tOut = content.TIMEOUT == "-" ? 1000 : int.Parse(content.TIMEOUT);
+                int tRetry = content.RETRY == "-" ? 0 : int.Parse(content.RETRY);
+                int index = 0;
+                GlobalData.buttonResult = "";
+                callPressWPS(1, tOut);
+                while (!_flag) {
+                    while (GlobalData.buttonResult.Length == 0) {
+                        Thread.Sleep(100);
+                        if (index >= (tOut / 100)) { _error = "Request time out."; break; }
+                        else index++;
+                    }
+                    destroyPressWPS();
+                    content.ACTUAL = (index * 100).ToString();
+                    if (index < (tOut / 100)) {
+                        if (GlobalData.buttonResult == "OK") _flag = true;
+                        else break;
+                    }
+                    else break;
+                }
+                goto END;
+            }
+            catch (Exception ex) {
+                _error = ex.ToString();
+                goto END;
+            }
+            END:
+            {
+                content.JUDGED = _flag == true ? "PASS" : "FAIL";
+                return _flag;
+            }
+        }
+
+        protected bool check_USB(ContentGridFields content, out string _error) {
+            _error = "";
+            bool _flag = false;
+            content.JUDGED = "waiting...";
+            try {
+                string stvalue = content.STANDARD;
+                int tOut = content.TIMEOUT == "-" ? 1000 : int.Parse(content.TIMEOUT);
+                int tRetry = content.RETRY == "-" ? 0 : int.Parse(content.RETRY);
+                int index = 0;
+                GlobalData.usbResult = "";
+                callPressWPS(2, tOut);
+                while (!_flag) {
+                    while (GlobalData.usbResult.Length == 0) {
+                        Thread.Sleep(100);
+                        if (index >= (tOut / 100)) { _error = "Request time out."; break; }
+                        else index++;
+                    }
+                    destroyPressWPS();
+                    content.ACTUAL = (index * 100).ToString();
+                    if (index < (tOut / 100)) {
+                        if (GlobalData.usbResult == "OK") _flag = true;
+                        else break;
+                    }
+                    else break;
+                }
+                goto END;
+            }
+            catch (Exception ex) {
+                _error = ex.ToString();
+                goto END;
+            }
+            END:
+            {
+                content.JUDGED = _flag == true ? "PASS" : "FAIL";
+                return _flag;
+            }
+        }
+
+        protected bool check_LEDs(ContentGridFields content, out string _error) {
+            _error = "";
+            bool _flag = false;
+            content.JUDGED = "waiting...";
+            try {
+                string stvalue = content.STANDARD;
+                int tOut = content.TIMEOUT == "-" ? 1000 : int.Parse(content.TIMEOUT);
+                int tRetry = content.RETRY == "-" ? 0 : int.Parse(content.RETRY);
+                int index = 0;
+                GlobalData.ledResult = "";
+                callLED(tOut);
+                while (!_flag) {
+                    while (GlobalData.ledResult.Length == 0) {
+                        Thread.Sleep(100);
+                        if (index >= (tOut / 100)) { _error = "Request time out."; break; }
+                        else index++;
+                    }
+                    destroyLED();
+                    content.ACTUAL = (index * 100).ToString();
+                    if (index < (tOut / 100)) {
+                        if (GlobalData.ledResult == "OK") _flag = true;
+                        else break;
+                    }
                     else break;
                 }
                 goto END;
