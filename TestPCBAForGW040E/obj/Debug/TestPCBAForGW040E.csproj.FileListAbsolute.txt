@@ -248,3 +248,5 @@ C:\Users\ANHHO\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\SubControls
 C:\Users\ANHHO\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\SubControls\PressWPS.baml
 C:\Users\ANHHO\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\SubControls\LED.g.cs
 C:\Users\ANHHO\Desktop\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\SubControls\LED.baml
+C:\Users\Acer4738Z\source\repos\Git\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\SubControls\LED.g.cs
+C:\Users\Acer4738Z\source\repos\Git\TestPCBAForGW040E\TestPCBAForGW040E\obj\Debug\SubControls\LED.baml

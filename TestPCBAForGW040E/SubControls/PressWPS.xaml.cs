@@ -76,15 +76,20 @@ namespace TestPCBAForGW040E {
 
                     switch (_title) {
                         case 0: { //WPS
-                                if (GlobalData.logContent.logviewUART.Contains("(ra0) entering disabled state")) {
-                                    GlobalData.buttonResult = "OK";
-                                    return;
+                                for (int i = 0; i < 10; i++) {
+                                    string pattern = string.Format("br0: port {0}(ra0) entering disabled state", i);
+                                    if (GlobalData.logContent.logviewUART.Contains(pattern)) {
+                                        GlobalData.buttonResult = "OK";
+                                        GlobalData.logDetailResult.WPSButton = "PASS";
+                                        return;
+                                    }
                                 }
                                 break;
                             }
                         case 1: { //Reset
                                 if (GlobalData.logContent.logviewUART.Contains("cc.c, 5676 h_sec")) {
                                     GlobalData.buttonResult = "OK";
+                                    GlobalData.logDetailResult.ResetButton = "PASS";
                                     return;
                                 }
                                 break;
@@ -92,6 +97,8 @@ namespace TestPCBAForGW040E {
                         case 2: { //USB
                                 if (GlobalData.logContent.logviewUART.Contains("new SuperSpeed USB device") && GlobalData.logContent.logviewUART.Contains("new high-speed USB device")) {
                                     GlobalData.usbResult = "OK";
+                                    GlobalData.logDetailResult.USB2 = "PASS";
+                                    GlobalData.logDetailResult.USB3 = "PASS";
                                     return;
                                 }
                                 break;
@@ -101,6 +108,11 @@ namespace TestPCBAForGW040E {
                 }
                 GlobalData.buttonResult = "NG";
                 GlobalData.usbResult = "NG";
+                GlobalData.logDetailResult.WPSButton = "FAIL";
+                GlobalData.logDetailResult.ResetButton = "FAIL";
+                GlobalData.logDetailResult.USB2 = "FAIL";
+                GlobalData.logDetailResult.USB3 = "FAIL";
+
             }));
             t.IsBackground = true;
             t.Start();

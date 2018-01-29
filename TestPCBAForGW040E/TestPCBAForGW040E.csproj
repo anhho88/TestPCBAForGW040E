@@ -58,10 +58,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Functions\Base\baseFunctions.cs" />
+    <Compile Include="Functions\Base\logManagement.cs" />
     <Compile Include="Functions\Excute\exCheckButton.cs" />
     <Compile Include="Functions\Excute\exCheckLAN.cs" />
     <Compile Include="Functions\Excute\exCheckLED.cs" />
     <Compile Include="Functions\Excute\exCheckUSB.cs" />
+    <Compile Include="Functions\Excute\exGetMAC.cs" />
     <Compile Include="Functions\Excute\exUploadFW.cs" />
     <Compile Include="Functions\Excute\exWriteMAC.cs" />
     <Compile Include="Functions\Excute\mainProgram.cs" />

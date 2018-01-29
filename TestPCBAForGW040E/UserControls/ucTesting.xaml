@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TestPCBAForGW040E.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+             d:DesignHeight="500" d:DesignWidth="500" Loaded="UserControl_Loaded">
 
     <Border CornerRadius="5,5,5,5" Background="#FF777777">
         <Grid>
@@ -15,55 +15,10 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <!--<TextBlock Grid.Row="0" Foreground="#FFF57F17" FontSize="50" Text="Waiting..." HorizontalAlignment="Right" Margin="0,0,10,0"></TextBlock>-->
-            <!--<DataGrid x:Name="gridTesting" Grid.Row="1" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
-                                  CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserReorderColumns="False" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
-                                  Background="#FFFAFAFA"
-                                  GridLinesVisibility="None"
-                                  HeadersVisibility="Column"
-                                  SelectionUnit="FullRow" SelectionMode="Single">
-                <DataGrid.CellStyle>
-                    <Style TargetType="DataGridCell">
-                        <Setter Property="BorderThickness" Value="0,0,0,1.5"/>
-                        <Setter Property="BorderBrush" Value="#FFDCDCDC"/>
-                        <Setter Property="Background" Value="#FFFAFAFA"/>
-                        <Setter Property="FontSize" Value="13"/>
-                        <Setter Property="Height" Value="30"/>
-                        <Setter Property="Foreground" Value="{StaticResource colorTextContent}"/>
-                    </Style>
-                </DataGrid.CellStyle>
-
-                <DataGrid.ColumnHeaderStyle>
-                    <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="FontSize" Value="13"/>
-                        <Setter Property="Background" Value="#FFFAFAFA"/>
-                        <Setter Property="Height" Value="50"/>
-                        <Setter Property="FontWeight" Value="Normal"/>
-                        <Setter Property="Foreground" Value="{StaticResource colorTextContent}"/>
-                        <Setter Property="BorderBrush" Value="#FFDCDCDC"/>
-                        <Setter Property="BorderThickness" Value="0,0,0,1.5"/>
-                        <Setter Property="Padding" Value="3,0,0,0"/>
-                        <Setter Property="FontFamily" Value="Segoe UI"/>
-                    </Style>
-                </DataGrid.ColumnHeaderStyle>
-
-                <DataGrid.Columns>
-                
-                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX" Width="0.5*"/>
-                    <DataGridTextColumn Binding="{Binding TESTNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TEST NAME" Width="1.5*"/>
-                    <DataGridTextColumn Binding="{Binding TESTSTEP, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TEST STEP" Width="2.5*"/>
-                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD" Width="2.5*"/>
-                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL" Width="2.5*"/>
-                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY" Width="0.5*"/>
-                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIME OUT" Width="0.7*"/>
-                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED" Width="0.7*"/>
-
-                </DataGrid.Columns>
-
-            </DataGrid>-->
+            
             <Grid Grid.Row="0">
                 <ScrollViewer>
-                    <TextBox Background="Transparent" Foreground="#FFC6FF00" AcceptsReturn="True">ERR: cai long ban gi vay</TextBox>
+                    <TextBox Background="Transparent" Foreground="White" AcceptsReturn="True" IsReadOnly="True" Text="{Binding Path=ERRORMESSAGE, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></TextBox>
                 </ScrollViewer>
             </Grid>
             <GridSplitter Background="#FF00BFA5" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></GridSplitter>
@@ -71,7 +26,7 @@
                 <StackPanel x:Name="spTesting">
 
                     <!--Upload Firmware-->
-                    <Expander IsExpanded="{Binding ElementName=ckFW, Path=IsChecked, Mode=OneWay}" Margin="0,0,0,10">
+                    <Expander IsExpanded="{Binding Path=fwExpander, Mode=OneWay}" Margin="0,0,0,10">
                         <Expander.Header>
                             <Grid Height="20">
                                 <WrapPanel HorizontalAlignment="Left">
@@ -150,7 +105,7 @@
                     </Expander>
 
                     <!--Write MAC Address-->
-                    <Expander IsExpanded="{Binding ElementName=ckMAC, Path=IsChecked, Mode=OneWay}" Margin="0,0,0,10">
+                    <Expander IsExpanded="{Binding Path=macExpander, Mode=OneWay}" Margin="0,0,0,10">
                         <Expander.Header>
                             <WrapPanel HorizontalAlignment="Left">
                                 <CheckBox x:Name="ckMAC" Margin="10,0,0,0" IsEnabled="False" IsChecked="{Binding Path=flagMAC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontWeight="Bold" VerticalAlignment="Top" Style="{StaticResource androidCheckBox}"></CheckBox>
@@ -227,7 +182,7 @@
                     </Expander>
 
                     <!--Check LAN Ports-->
-                    <Expander IsExpanded="{Binding ElementName=ckLAN, Path=IsChecked, Mode=OneWay}" Margin="0,0,0,10">
+                    <Expander IsExpanded="{Binding Path=lanExpander, Mode=OneWay}" Margin="0,0,0,10">
                         <Expander.Header>
                             <WrapPanel HorizontalAlignment="Left">
                                 <CheckBox x:Name="ckLAN" Margin="10,0,0,0" IsEnabled="False" IsChecked="{Binding Path=flagLAN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontWeight="Bold" VerticalAlignment="Top" Style="{StaticResource androidCheckBox}"></CheckBox>
@@ -305,7 +260,7 @@
                     </Expander>
 
                     <!--Check USB 3.0-->
-                    <Expander IsExpanded="{Binding ElementName=ckUSB, Path=IsChecked, Mode=OneWay}" Margin="0,0,0,10">
+                    <Expander IsExpanded="{Binding Path=usbExpander, Mode=OneWay}" Margin="0,0,0,10">
                         <Expander.Header>
                             <WrapPanel HorizontalAlignment="Left">
                                 <CheckBox x:Name="ckUSB" Margin="10,0,0,0" IsEnabled="False" IsChecked="{Binding Path=flagUSB, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontWeight="Bold" VerticalAlignment="Top" Style="{StaticResource androidCheckBox}"></CheckBox>
@@ -383,7 +338,7 @@
                     </Expander>
 
                     <!--Check Buttons-->
-                    <Expander IsExpanded="{Binding ElementName=ckBUTTON, Path=IsChecked, Mode=OneWay}" Margin="0,0,0,10">
+                    <Expander IsExpanded="{Binding Path=buttonExpander, Mode=OneWay}" Margin="0,0,0,10">
                         <Expander.Header>
                             <WrapPanel HorizontalAlignment="Left">
                                 <CheckBox x:Name="ckBUTTON" Margin="10,0,0,0" IsEnabled="False" IsChecked="{Binding Path=flagBUTTON, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontWeight="Bold" VerticalAlignment="Top" Style="{StaticResource androidCheckBox}"></CheckBox>
@@ -461,7 +416,7 @@
                     </Expander>
 
                     <!--Check LEDs-->
-                    <Expander IsExpanded="{Binding ElementName=ckLED, Path=IsChecked, Mode=OneWay}"  Margin="0,0,0,10">
+                    <Expander IsExpanded="{Binding Path=ledExpander, Mode=OneWay}"  Margin="0,0,0,10">
                         <Expander.Header>
                             <WrapPanel HorizontalAlignment="Left">
                                 <CheckBox x:Name="ckLED" Margin="10,0,0,0" IsEnabled="False" IsChecked="{Binding Path=flagLED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontWeight="Bold" VerticalAlignment="Top" Style="{StaticResource androidCheckBox}"></CheckBox>
@@ -545,7 +500,7 @@
             <Grid Grid.Row="3" Margin="10,5,10,5">
                 <Button x:Name="btnStart" Click="btnStart_Click" FontSize="15" HorizontalAlignment="Left" Margin="10,0,0,0" Height="40" Width="80">Start</Button>
                 <WrapPanel HorizontalAlignment="Right">
-                    <Button Visibility="Visible" Click="Button_Click"  FontSize="15" HorizontalAlignment="Left" Margin="10,0,0,0" Height="40" Width="80">Test</Button>
+                    <Button Visibility="Collapsed" Click="Button_Click"  FontSize="15" HorizontalAlignment="Left" Margin="10,0,0,0" Height="40" Width="80">Test</Button>
                     <Button x:Name="btnConfig" FontSize="15" Click="btn_Click" Margin="10,0,0,0" Height="40" Width="80">Configure</Button>
                     <Button x:Name="btnDefault" FontSize="15" Click="btn_Click" Margin="10,0,0,0" Height="40" Width="80">Default</Button>
                 </WrapPanel>

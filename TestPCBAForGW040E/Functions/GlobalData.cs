@@ -37,5 +37,8 @@ namespace TestPCBAForGW040E.Functions
         public static string buttonResult = "";
         public static string usbResult = "";
         public static string ledResult = "";
+
+        public static logInfomation logResult;
+        public static logDetailInfo logDetailResult;
     }
 }

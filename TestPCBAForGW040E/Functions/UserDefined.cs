@@ -249,6 +249,65 @@ namespace TestPCBAForGW040E.Functions {
         string _usbStatusContent = "";
         string _buttonStatusContent = "";
         string _ledStatusContent = "";
+        string _errormessage = "";
+
+        bool _fwExpander;
+        bool _macExpander;
+        bool _lanExpander;
+        bool _usbExpander;
+        bool _buttonExpander;
+        bool _ledExpander;
+
+        public bool fwExpander {
+            get { return _fwExpander; }
+            set {
+                _fwExpander = value;
+                OnPropertyChanged(nameof(fwExpander));
+            }
+        }
+        public bool macExpander {
+            get { return _macExpander; }
+            set {
+                _macExpander = value;
+                OnPropertyChanged(nameof(macExpander));
+            }
+        }
+        public bool lanExpander {
+            get { return _lanExpander; }
+            set {
+                _lanExpander = value;
+                OnPropertyChanged(nameof(lanExpander));
+            }
+        }
+        public bool usbExpander {
+            get { return _usbExpander; }
+            set {
+                _usbExpander = value;
+                OnPropertyChanged(nameof(usbExpander));
+            }
+        }
+        public bool buttonExpander {
+            get { return _buttonExpander; }
+            set {
+                _buttonExpander = value;
+                OnPropertyChanged(nameof(buttonExpander));
+            }
+        }
+        public bool ledExpander {
+            get { return _ledExpander; }
+            set {
+                _ledExpander = value;
+                OnPropertyChanged(nameof(ledExpander));
+            }
+        }
+
+        public string ERRORMESSAGE {
+            get { return _errormessage; }
+            set {
+                _errormessage = value;
+                OnPropertyChanged(nameof(ERRORMESSAGE));
+            }
+        }
 
         public string fwStatusContent {
             get { return _fwStatusContent; }
@@ -341,6 +400,15 @@ namespace TestPCBAForGW040E.Functions {
             }
         }
 
+        public void dontExpander() {
+            this.fwExpander = false;
+            this.macExpander = false;
+            this.lanExpander = false;
+            this.usbExpander = false;
+            this.buttonExpander = false;
+            this.ledExpander = false;
+        }
+
     }
 
     public class PropertiesDefaultSetting : INotifyPropertyChanged {
@@ -401,6 +469,44 @@ namespace TestPCBAForGW040E.Functions {
             Properties.Settings.Default.Save();
         }
 
+    }
+
+    public class logInfomation {
+
+        public string uploadFW { get; set; }
+        public string writeMAC { get; set; }
+        public string checkLAN { get; set; }
+        public string checkUSB { get; set; }
+        public string checkButton { get; set; }
+        public string checkLED { get; set; }
+        public string totalJud { get; set; }
+        public string error { get; set; }
+    }
+
+    public class logDetailInfo {
+
+        public string uploadFW { get; set; }
+        public string writeMAC { get; set; }
+        public string LANPort1 { get; set; }
+        public string LANPort2 { get; set; }
+        public string LANPort3 { get; set; }
+        public string LANPort4 { get; set; }
+        public string USB2 { get; set; }
+        public string USB3 { get; set; }
+        public string WPSButton { get; set; }
+        public string ResetButton { get; set; }
+        public string PowerLED { get; set; }
+        public string PONLED { get; set; }
+        public string INETLED { get; set; }
+        public string WLANLED { get; set; }
+        public string LAN1LED { get; set; }
+        public string LAN2LED { get; set; }
+        public string LAN3LED { get; set; }
+        public string LAN4LED { get; set; }
+        public string WPSLED { get; set; }
+        public string LOSLED { get; set; }
+        public string ERROR { get; set; }
+        public string JUDGED { get; set; }
     }
 
 }

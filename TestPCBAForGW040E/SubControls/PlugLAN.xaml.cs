@@ -116,15 +116,20 @@ namespace TestPCBAForGW040E {
             Thread t = new Thread(new ThreadStart(() => {
                 while (s.IsAlive) {
 
+                    GlobalData.logDetailResult.LANPort1 = "FAIL";
+                    GlobalData.logDetailResult.LANPort2 = "FAIL";
+                    GlobalData.logDetailResult.LANPort3 = "FAIL";
+                    GlobalData.logDetailResult.LANPort4 = "FAIL";
+
                     switch (InOut) {
                         case 0: { //Plugin LAN
                                 lan.Off();
-                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_1 up")) lan.INOUT1 = true;
-                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_2 up")) lan.INOUT2 = true;
-                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_3 up")) lan.INOUT3 = true;
-                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_4 up")) lan.INOUT4 = true;
+                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_1 up")) { lan.INOUT1 = true; GlobalData.logDetailResult.LANPort1 = "PASS"; }
+                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_2 up")) { lan.INOUT2 = true; GlobalData.logDetailResult.LANPort2 = "PASS"; }
+                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_3 up")) { lan.INOUT3 = true; GlobalData.logDetailResult.LANPort3 = "PASS"; }
+                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_4 up")) { lan.INOUT4 = true; GlobalData.logDetailResult.LANPort4 = "PASS"; }
 
-                                if (lan.INOUT1==true && lan.INOUT2==true && lan.INOUT3==true && lan.INOUT4==true) {
+                                    if (lan.INOUT1==true && lan.INOUT2==true && lan.INOUT3==true && lan.INOUT4==true) {
                                     GlobalData.lanResult = "OK";
                                     return;
                                 }
@@ -132,12 +137,12 @@ namespace TestPCBAForGW040E {
                             }
                         case 1: { //Plugout LAN
                                 lan.On();
-                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_1 down")) lan.INOUT1 = false;
-                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_2 down")) lan.INOUT2 = false;
-                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_3 down")) lan.INOUT3 = false;
-                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_4 down")) lan.INOUT4 = false;
+                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_1 down")) { lan.INOUT1 = false; GlobalData.logDetailResult.LANPort1 = "PASS"; }
+                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_2 down")) { lan.INOUT2 = false; GlobalData.logDetailResult.LANPort2 = "PASS"; }
+                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_3 down")) { lan.INOUT3 = false; GlobalData.logDetailResult.LANPort3 = "PASS"; }
+                                if (GlobalData.logContent.logviewUART.Contains("Link State: LAN_4 down")) { lan.INOUT4 = false; GlobalData.logDetailResult.LANPort4 = "PASS"; }
 
-                                if (lan.INOUT1 == false && lan.INOUT2 == false && lan.INOUT3 == false && lan.INOUT4 == false) {
+                                    if (lan.INOUT1 == false && lan.INOUT2 == false && lan.INOUT3 == false && lan.INOUT4 == false) {
                                     GlobalData.lanResult = "OK";
                                     return;
                                 }

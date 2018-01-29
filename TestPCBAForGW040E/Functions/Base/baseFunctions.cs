@@ -110,7 +110,7 @@ namespace TestPCBAForGW040E.Functions {
             catch { }
         }
 
-
+        
         private bool accessDUT(out string message) {
             message = "";
             try {
@@ -169,6 +169,28 @@ namespace TestPCBAForGW040E.Functions {
             catch {
                 return false;
             }
+        }
+
+        private bool stringRegexMatch(string input, string pattern) {
+
+            input = input.ToLower();
+            pattern = pattern.ToLower();
+            string[] inputs = input.ToCharArray().Select(c => c.ToString()).ToArray();
+            string[] patterns = pattern.ToCharArray().Select(c => c.ToString()).ToArray();
+
+            //Compare string
+            if (input.Length != pattern.Length) return false;
+            for (int i = 0; i < input.Length; i++) {
+                if (patterns[i] == "#") {
+                    int r;
+                    bool ret = int.TryParse(inputs[i], out r);
+                    if (!ret) return false;
+                }
+                else {
+                    if (inputs[i] != patterns[i]) return false;
+                }
+            }
+            return true;
         }
 
         protected bool wait_DUT_Online(ContentGridFields content, out string _error) {
@@ -569,6 +591,54 @@ namespace TestPCBAForGW040E.Functions {
             }
         }
 
+
+        protected bool read_MacAddress(ContentGridFields content, out string _error) {
+            _error = "";
+            bool _flag = false;
+            content.JUDGED = "waiting...";
+            try {
+                string stvalue = content.STANDARD;
+                int tOut = content.TIMEOUT == "-" ? 1000 : int.Parse(content.TIMEOUT);
+                int tRetry = content.RETRY == "-" ? 0 : int.Parse(content.RETRY);
+                int index = 0;
+                GlobalData.uartData = "";
+                while (!_flag) {
+                    this.sendDataToDUT(string.Format("ifconfig\n"));
+                    string st = string.Format("Link encap:Ethernet  HWaddr");
+                    while (!GlobalData.uartData.Contains(st)) {
+                        Thread.Sleep(1000);
+                        if (index >= (tOut / 1000)) break;
+                        else index++;
+                    }
+                    if (index >= (tOut / 1000)) {
+                        content.ACTUAL = (index * 1000).ToString();
+                        _error = "Request time out";
+                        break;
+                    }
+                    else {
+                        string tmpStr = GlobalData.uartData;
+                        string[] buffer = tmpStr.Split(new string[] { "HWaddr" }, StringSplitOptions.None);
+                        tmpStr = buffer[1].Replace("\r", "").Replace("\n", "").Trim();
+                        string mac = tmpStr.Substring(0, 17);
+                        GlobalData.macAddress = mac.Replace(":", "");
+                        content.ACTUAL = st;
+                        _flag = true;
+                    }
+                }
+                goto END;
+            }
+            catch (Exception ex) {
+                _error = ex.ToString();
+                goto END;
+            }
+            END:
+            {
+                content.JUDGED = _flag == true ? "PASS" : "FAIL";
+                return _flag;
+            }
+        }
+
+
         protected bool rewait_DUT_Online(ContentGridFields content, out string _error) {
             _error = "";
             bool _flag = false;
@@ -735,11 +805,15 @@ namespace TestPCBAForGW040E.Functions {
             content.JUDGED = "waiting...";
             GlobalData.uartData = "";
             //////////////////////////////////////
-            if (GlobalData.logContent.logviewUART.Contains("(ra1) entering forwarding state") == true) {
-                _flag = true;
-                content.ACTUAL = "0";
-                goto END;
+            for (int i = 0; i < 10; i++) {
+                string pattern = string.Format("br0: port {0}(ra0) entering forwarding state", i);
+                if (GlobalData.logContent.logviewUART.Contains(pattern) == true) {
+                    _flag = true;
+                    content.ACTUAL = "0";
+                    goto END;
+                }
             }
+            
             //////////////////////////////////////
             try {
                 string stvalue = content.STANDARD;
@@ -749,7 +823,12 @@ namespace TestPCBAForGW040E.Functions {
                 while (!_flag) {
                     bool _end = false;
                     while (!_end) {
-                        if (GlobalData.uartData.Contains("(ra1) entering forwarding state")) break;
+                        bool ret = false;
+                        for (int i = 0; i < 10; i++) {
+                            string pattern = string.Format("br0: port {0}(ra0) entering forwarding state", i);
+                            if (GlobalData.uartData.Contains(pattern) == true) { ret = true; break; }
+                        }
+                        if (ret == true) break;
                         Thread.Sleep(1000);
                         if (index >= (tOut / 1000)) break;
                         else index++;

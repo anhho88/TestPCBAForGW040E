@@ -138,6 +138,16 @@ namespace TestPCBAForGW040E
 
         private void Button_Click(object sender, RoutedEventArgs e) {
             bool ret = led.PowerLED && led.PONLED && led.INETLED && led.WLANLED && led.LAN1LED && led.LAN2LED && led.LAN3LED && led.LAN4LED && led.WPSLED && led.LOSLED;
+            GlobalData.logDetailResult.PowerLED = led.PowerLED == true ? "PASS" : "FAIL";
+            GlobalData.logDetailResult.PONLED = led.PONLED == true ? "PASS" : "FAIL";
+            GlobalData.logDetailResult.INETLED = led.INETLED == true ? "PASS" : "FAIL";
+            GlobalData.logDetailResult.WLANLED = led.WLANLED == true ? "PASS" : "FAIL";
+            GlobalData.logDetailResult.LAN1LED = led.LAN1LED == true ? "PASS" : "FAIL";
+            GlobalData.logDetailResult.LAN2LED = led.LAN2LED == true ? "PASS" : "FAIL";
+            GlobalData.logDetailResult.LAN3LED = led.LAN3LED == true ? "PASS" : "FAIL";
+            GlobalData.logDetailResult.LAN4LED = led.LAN4LED == true ? "PASS" : "FAIL";
+            GlobalData.logDetailResult.WPSLED = led.WPSLED == true ? "PASS" : "FAIL";
+            GlobalData.logDetailResult.LOSLED = led.LOSLED == true ? "PASS" : "FAIL";
             if (ret) GlobalData.ledResult = "OK";
             else GlobalData.ledResult = "NG";
         }
