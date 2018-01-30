@@ -1,0 +1,25 @@
+Key,Value
+PCName,ACER4738Z-PC
+DateTime,2018/01/29 14:22:22
+UploadFW,FAIL
+WriteMAC,-
+LANPort1,-
+LANPort2,-
+LANPort3,-
+LANPort4,-
+USB2.0,None
+USB3.0,None
+WPSButton,-
+ResetButton,-
+PowerLED,-
+PONLED,-
+INETLED,-
+WLANLED,-
+LAN1LED,-
+LAN2LED,-
+LAN3LED,-
+LAN4LED,-
+WPSLED,-
+LOSLED,-
+Error,Request time out.
+TotalJudged,NG

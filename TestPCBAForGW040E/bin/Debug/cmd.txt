@@ -1,1 +1,1 @@
-tftp -i 192.168.1.1 put D:\fw_GW040E\tclinux.bin
+tftp -i 192.168.1.1 put C:\Users\Acer4738Z\source\repos\Git\TestPCBAForGW040E\TestPCBAForGW040E\bin\Debug\FW\tclinux.bin

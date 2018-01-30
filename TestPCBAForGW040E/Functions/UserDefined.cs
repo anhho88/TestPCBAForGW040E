@@ -251,12 +251,12 @@ namespace TestPCBAForGW040E.Functions {
         string _ledStatusContent = "";
         string _errormessage = "";
 
-        bool _fwExpander;
-        bool _macExpander;
-        bool _lanExpander;
-        bool _usbExpander;
-        bool _buttonExpander;
-        bool _ledExpander;
+        bool _fwExpander = true;
+        bool _macExpander = true;
+        bool _lanExpander = true;
+        bool _usbExpander = true;
+        bool _buttonExpander = true;
+        bool _ledExpander = true;
 
         public bool fwExpander {
             get { return _fwExpander; }
@@ -409,6 +409,15 @@ namespace TestPCBAForGW040E.Functions {
             this.ledExpander = false;
         }
 
+        public void allwaysExpander() {
+            this.fwExpander = true;
+            this.macExpander = true;
+            this.lanExpander = true;
+            this.usbExpander = true;
+            this.buttonExpander = true;
+            this.ledExpander = true;
+        }
+
     }
 
     public class PropertiesDefaultSetting : INotifyPropertyChanged {
@@ -462,6 +471,14 @@ namespace TestPCBAForGW040E.Functions {
             set {
                 Properties.Settings.Default.DUT_MACFormat = value;
                 OnPropertyChanged(nameof(DUT_MACFormat));
+            }
+        }
+
+        public string FWPath {
+            get { return Properties.Settings.Default.FWPath; }
+            set {
+                Properties.Settings.Default.FWPath = value;
+                OnPropertyChanged(nameof(FWPath));
             }
         }
 

@@ -64,15 +64,15 @@
                         </Expander.Style>
 
                         <StackPanel Margin="20,5,0,5">
-                            <DataGrid x:Name="fwDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus"  GridLinesVisibility="None">
+                            <DataGrid x:Name="fwDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus"  GridLinesVisibility="None" ColumnWidth="*">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX"/>
-                                    <DataGridTextColumn Binding="{Binding STEPNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STEPNAME"/>
-                                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD"/>
-                                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL"/>
-                                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY"/>
-                                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIMEOUT"/>
-                                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED"/>
+                                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding STEPNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STEPNAME" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIMEOUT" Width="1.2*"/>
+                                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED" Width="*"/>
                                 </DataGrid.Columns>
 
                                 <DataGrid.CellStyle>
@@ -140,15 +140,15 @@
                             </Style>
                         </Expander.Style>
                         <StackPanel Margin="20,5,0,5">
-                            <DataGrid x:Name="macDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None">
+                            <DataGrid x:Name="macDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None" ColumnWidth="*">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX"/>
-                                    <DataGridTextColumn Binding="{Binding STEPNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STEPNAME"/>
-                                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD"/>
-                                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL"/>
-                                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY"/>
-                                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIMEOUT"/>
-                                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED"/>
+                                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding STEPNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STEPNAME" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIMEOUT" Width="1.2*"/>
+                                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED" Width="*"/>
                                 </DataGrid.Columns>
 
                                 <DataGrid.CellStyle>
@@ -186,7 +186,7 @@
                         <Expander.Header>
                             <WrapPanel HorizontalAlignment="Left">
                                 <CheckBox x:Name="ckLAN" Margin="10,0,0,0" IsEnabled="False" IsChecked="{Binding Path=flagLAN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontWeight="Bold" VerticalAlignment="Top" Style="{StaticResource androidCheckBox}"></CheckBox>
-                                <TextBlock FontSize="14" FontWeight="Bold" Foreground="{Binding ElementName=tbLANstatus, Path=Foreground, Mode=OneWay}" Text="CHECK LAN"/>
+                                <TextBlock FontSize="14" FontWeight="Bold" Foreground="{Binding ElementName=tbLANstatus, Path=Foreground, Mode=OneWay}" Text="CHECK LAN Ports"/>
                                 <TextBlock x:Name="tbLANstatus" Height="20" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" Text="{Binding Path=lanStatusContent, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
                                     <TextBlock.Style>
                                         <Style TargetType="TextBlock">
@@ -218,15 +218,15 @@
                         </Expander.Style>
 
                         <StackPanel Margin="20,5,0,5">
-                            <DataGrid x:Name="lanDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None">
+                            <DataGrid x:Name="lanDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None" ColumnWidth="*">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX"/>
-                                    <DataGridTextColumn Binding="{Binding STEPNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STEPNAME"/>
-                                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD"/>
-                                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL"/>
-                                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY"/>
-                                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIMEOUT"/>
-                                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED"/>
+                                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding STEPNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STEPNAME" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIMEOUT" Width="1.2*"/>
+                                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED" Width="*"/>
                                 </DataGrid.Columns>
 
                                 <DataGrid.CellStyle>
@@ -264,7 +264,7 @@
                         <Expander.Header>
                             <WrapPanel HorizontalAlignment="Left">
                                 <CheckBox x:Name="ckUSB" Margin="10,0,0,0" IsEnabled="False" IsChecked="{Binding Path=flagUSB, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontWeight="Bold" VerticalAlignment="Top" Style="{StaticResource androidCheckBox}"></CheckBox>
-                                <TextBlock FontSize="14" FontWeight="Bold" Foreground="{Binding ElementName=tbUSBstatus, Path=Foreground, Mode=OneWay}" Text="CHECK USB 3.0"></TextBlock>
+                                <TextBlock FontSize="14" FontWeight="Bold" Foreground="{Binding ElementName=tbUSBstatus, Path=Foreground, Mode=OneWay}" Text="CHECK USB 2.0, 3.0"></TextBlock>
                                 <TextBlock x:Name="tbUSBstatus" Height="20" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" Text="{Binding Path=usbStatusContent, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
                                     <TextBlock.Style>
                                         <Style TargetType="TextBlock">
@@ -296,15 +296,15 @@
                         </Expander.Style>
 
                         <StackPanel Margin="20,5,0,5">
-                            <DataGrid x:Name="usbDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None">
+                            <DataGrid x:Name="usbDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None" ColumnWidth="*">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX"/>
-                                    <DataGridTextColumn Binding="{Binding STEPNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STEPNAME"/>
-                                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD"/>
-                                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL"/>
-                                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY"/>
-                                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIMEOUT"/>
-                                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED"/>
+                                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding STEPNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STEPNAME" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIMEOUT" Width="1.2*"/>
+                                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED" Width="*"/>
                                 </DataGrid.Columns>
 
                                 <DataGrid.CellStyle>
@@ -374,15 +374,15 @@
                         </Expander.Style>
 
                         <StackPanel Margin="20,5,0,5">
-                            <DataGrid x:Name="buttonDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None">
+                            <DataGrid x:Name="buttonDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None" ColumnWidth="*">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX"/>
-                                    <DataGridTextColumn Binding="{Binding STEPNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STEPNAME"/>
-                                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD"/>
-                                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL"/>
-                                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY"/>
-                                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIMEOUT"/>
-                                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED"/>
+                                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding STEPNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STEPNAME" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIMEOUT" Width="1.2*"/>
+                                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED" Width="*"/>
                                 </DataGrid.Columns>
 
                                 <DataGrid.CellStyle>
@@ -452,15 +452,15 @@
                         </Expander.Style>
 
                         <StackPanel Margin="20,5,0,5">
-                            <DataGrid x:Name="ledDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None">
+                            <DataGrid x:Name="ledDataGrid" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" RowHeaderWidth="0" LostFocus="DataGrid_LostFocus" GridLinesVisibility="None" ColumnWidth="*">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX"/>
-                                    <DataGridTextColumn Binding="{Binding STEPNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STEPNAME"/>
-                                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD"/>
-                                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL"/>
-                                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY"/>
-                                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIMEOUT"/>
-                                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED"/>
+                                    <DataGridTextColumn Binding="{Binding INDEX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="INDEX" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding STEPNAME, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STEPNAME" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding STANDARD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="STANDARD" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding ACTUAL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="ACTUAL" Width="5*"/>
+                                    <DataGridTextColumn Binding="{Binding RETRY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="RETRY" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding TIMEOUT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="TIMEOUT" Width="1.2*"/>
+                                    <DataGridTextColumn Binding="{Binding JUDGED, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Header="JUDGED" Width="*"/>
                                 </DataGrid.Columns>
 
                                 <DataGrid.CellStyle>

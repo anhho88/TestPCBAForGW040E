@@ -1,5 +1,5 @@
 INDEX,STEPNAME,STANDARD,ACTUAL,RETRY,TIMEOUT,JUDGED
 1,Wait DUT online,-,?,-,30000,?
 2,Wait wifi boot complete,-,?,-,120000,?
-3,check wps button,-,?,-,120000,?
-4,check reset button,-,?,-,120000,?
+3,check wps button,br0: port #(ra0) entering disabled state,?,-,120000,?
+4,check reset button,cc.c 5676 h_sec:cc.c 5635 h_sec,?,-,120000,?

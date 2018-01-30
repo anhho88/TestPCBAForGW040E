@@ -141,7 +141,7 @@ namespace TestPCBAForGW040E.Functions {
             message = "";
             try {
                 string rootPath = System.AppDomain.CurrentDomain.BaseDirectory;
-                System.IO.File.WriteAllText(rootPath + "cmd.txt", "tftp -i 192.168.1.1 put D:\\fw_GW040E\\tclinux.bin");
+                System.IO.File.WriteAllText(rootPath + "cmd.txt", string.Format("tftp -i 192.168.1.1 put {0}", GlobalData.defaultSettings.FWPath));
                 try {
                     System.IO.File.Delete(rootPath + "wps.txt");
                 }
@@ -161,7 +161,7 @@ namespace TestPCBAForGW040E.Functions {
             }
         }
 
-        private bool sendDataToDUT(string data) {
+        protected bool sendDataToDUT(string data) {
             try {
                 GlobalData.serialPort.Port.Write(data);
                 return true;

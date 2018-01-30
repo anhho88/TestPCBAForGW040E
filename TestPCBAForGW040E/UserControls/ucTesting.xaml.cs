@@ -74,12 +74,14 @@ namespace TestPCBAForGW040E.UserControls {
         }
 
         private void refreshGrid() {
-            this.fwDataGrid.Items.Refresh();
-            this.macDataGrid.Items.Refresh();
-            this.lanDataGrid.Items.Refresh();
-            this.usbDataGrid.Items.Refresh();
-            this.buttonDataGrid.Items.Refresh();
-            this.ledDataGrid.Items.Refresh();
+            try {
+                this.fwDataGrid.Items.Refresh();
+                this.macDataGrid.Items.Refresh();
+                this.lanDataGrid.Items.Refresh();
+                this.usbDataGrid.Items.Refresh();
+                this.buttonDataGrid.Items.Refresh();
+                this.ledDataGrid.Items.Refresh();
+            } catch { }
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e) {

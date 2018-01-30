@@ -1,4 +1,4 @@
 INDEX,STEPNAME,STANDARD,ACTUAL,RETRY,TIMEOUT,JUDGED
 1,Wait DUT online,-,?,-,30000,?
-2,Wait DUT boot complete,-,?,-,120000,?
-3,Plugin USB HUB,Attached SCSI removable disk,?,3,30000,?
+2,Wait wifi boot complete,-,?,-,120000,?
+3,Plugin USB HUB,new SuperSpeed USB device,?,3,30000,?

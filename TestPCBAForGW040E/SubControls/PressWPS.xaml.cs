@@ -87,7 +87,7 @@ namespace TestPCBAForGW040E {
                                 break;
                             }
                         case 1: { //Reset
-                                if (GlobalData.logContent.logviewUART.Contains("cc.c, 5676 h_sec")) {
+                                if (GlobalData.logContent.logviewUART.Contains("cc.c, 5676 h_sec") || GlobalData.logContent.logviewUART.Contains("cc.c, 5635 h_sec")) {
                                     GlobalData.buttonResult = "OK";
                                     GlobalData.logDetailResult.ResetButton = "PASS";
                                     return;
@@ -95,7 +95,7 @@ namespace TestPCBAForGW040E {
                                 break;
                             }
                         case 2: { //USB
-                                if (GlobalData.logContent.logviewUART.Contains("new SuperSpeed USB device") && GlobalData.logContent.logviewUART.Contains("new high-speed USB device")) {
+                                if (GlobalData.logContent.logviewUART.Contains("new SuperSpeed USB device") && GlobalData.logContent.logviewUART.Contains("new high speed USB device")) {
                                     GlobalData.usbResult = "OK";
                                     GlobalData.logDetailResult.USB2 = "PASS";
                                     GlobalData.logDetailResult.USB3 = "PASS";

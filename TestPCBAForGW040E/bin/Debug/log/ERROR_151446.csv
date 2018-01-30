@@ -1,0 +1,11 @@
+Key,Value
+PCName,ACER4738Z-PC
+DateTime,2018/01/29 15:14:46
+UploadFW,PASS
+WriteMAC,FAIL
+CheckLAN,None
+CheckUSB,None
+CheckButtons,None
+CheckLEDs,None
+Error,Mac Address sai định dạng!
+TotalJudged,NG

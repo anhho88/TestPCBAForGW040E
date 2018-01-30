@@ -1,0 +1,11 @@
+Key,Value
+PCName,ACER4738Z-PC
+DateTime,2018/01/29 15:55:27
+UploadFW,None
+WriteMAC,None
+CheckLAN,PASS
+CheckUSB,PASS
+CheckButtons,FAIL
+CheckLEDs,-
+Error,
+TotalJudged,NG

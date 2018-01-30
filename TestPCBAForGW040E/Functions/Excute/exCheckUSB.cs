@@ -14,7 +14,7 @@ namespace TestPCBAForGW040E.Functions {
                 //Wait DUT online
                 if (!rewait_DUT_Online(GlobalData.checkUsbContent[0], out _error)) goto NG;
                 //Wait DUT boot completed
-                if (!rewait_DUTBootComplete(GlobalData.checkUsbContent[1], out _error)) goto NG;
+                if (!wait_DUTWifiBootComplete(GlobalData.checkUsbContent[1], out _error)) goto NG;
                 //check USB
                 if (!check_USB(GlobalData.checkUsbContent[2], out _error)) goto NG;
                 goto OK;

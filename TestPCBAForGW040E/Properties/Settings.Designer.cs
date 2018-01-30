@@ -166,5 +166,17 @@ namespace TestPCBAForGW040E.Properties {
                 this["flag_LED"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FWPath {
+            get {
+                return ((string)(this["FWPath"]));
+            }
+            set {
+                this["FWPath"] = value;
+            }
+        }
     }
 }

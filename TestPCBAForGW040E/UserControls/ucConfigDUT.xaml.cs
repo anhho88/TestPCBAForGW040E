@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TestPCBAForGW040E.Functions;
+using Microsoft.Win32;
 
 namespace TestPCBAForGW040E.UserControls
 {
@@ -47,6 +38,16 @@ namespace TestPCBAForGW040E.UserControls
                         break;
                     }
                 case "Default": {
+                        break;
+                    }
+                case "browser": {
+                        OpenFileDialog openFileDialog = new OpenFileDialog();
+                        openFileDialog.Filter = "firmware *.bin|*.bin";
+                        openFileDialog.Title = "Select path of file 'tclinux.bin'";
+                        openFileDialog.FileName = "tclinux.bin";
+                        if (openFileDialog.ShowDialog()== true) {
+                            GlobalData.defaultSettings.FWPath = openFileDialog.FileName;
+                        }
                         break;
                     }
             }
