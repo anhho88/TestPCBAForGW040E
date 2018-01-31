@@ -76,13 +76,10 @@ namespace TestPCBAForGW040E {
 
                     switch (_title) {
                         case 0: { //WPS
-                                for (int i = 0; i < 10; i++) {
-                                    string pattern = string.Format("br0: port {0}(ra0) entering disabled state", i);
-                                    if (GlobalData.logContent.logviewUART.Contains(pattern)) {
-                                        GlobalData.buttonResult = "OK";
-                                        GlobalData.logDetailResult.WPSButton = "PASS";
-                                        return;
-                                    }
+                                if (GlobalData.logContent.logviewUART.isWifiBootCompleted()) {
+                                    GlobalData.buttonResult = "OK";
+                                    GlobalData.logDetailResult.WPSButton = "PASS";
+                                    return;
                                 }
                                 break;
                             }
@@ -95,7 +92,7 @@ namespace TestPCBAForGW040E {
                                 break;
                             }
                         case 2: { //USB
-                                if (GlobalData.logContent.logviewUART.Contains("new SuperSpeed USB device") && GlobalData.logContent.logviewUART.Contains("new high speed USB device")) {
+                                if (GlobalData.logContent.logviewUART.isUsb3ConnectSuccess() && GlobalData.logContent.logviewUART.isUsb2ConnectSuccess()) {
                                     GlobalData.usbResult = "OK";
                                     GlobalData.logDetailResult.USB2 = "PASS";
                                     GlobalData.logDetailResult.USB3 = "PASS";

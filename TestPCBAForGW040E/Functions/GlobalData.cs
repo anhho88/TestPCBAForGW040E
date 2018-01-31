@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Media;
 using System.Windows;
 using System.IO.Ports;
+using System.Text.RegularExpressions;
 
 namespace TestPCBAForGW040E.Functions
 {
@@ -40,5 +41,20 @@ namespace TestPCBAForGW040E.Functions
 
         public static logInfomation logResult;
         public static logDetailInfo logDetailResult;
+    }
+
+    public static class StringExtensions {
+
+        public static bool isUsb3ConnectSuccess(this string s) {
+            return Regex.IsMatch(s, ".\\d+-\\d+.\\d+: new SuperSpeed USB device+");
+        }
+
+        public static bool isUsb2ConnectSuccess(this string s) {
+            return Regex.IsMatch(s, ".\\d+-\\d+.\\d+: new high speed USB device+");
+        }
+
+        public static bool isWifiBootCompleted(this string s) {
+            return Regex.IsMatch(s, ".br\\d+: port \\d+(ra\\d+) entering disabled state+");
+        }
     }
 }

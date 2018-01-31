@@ -805,15 +805,11 @@ namespace TestPCBAForGW040E.Functions {
             content.JUDGED = "waiting...";
             GlobalData.uartData = "";
             //////////////////////////////////////
-            for (int i = 0; i < 10; i++) {
-                string pattern = string.Format("br0: port {0}(ra0) entering forwarding state", i);
-                if (GlobalData.logContent.logviewUART.Contains(pattern) == true) {
-                    _flag = true;
-                    content.ACTUAL = "0";
-                    goto END;
-                }
+            if (GlobalData.logContent.logviewUART.isWifiBootCompleted() == true) {
+                _flag = true;
+                content.ACTUAL = "0";
+                goto END;
             }
-            
             //////////////////////////////////////
             try {
                 string stvalue = content.STANDARD;
@@ -824,10 +820,7 @@ namespace TestPCBAForGW040E.Functions {
                     bool _end = false;
                     while (!_end) {
                         bool ret = false;
-                        for (int i = 0; i < 10; i++) {
-                            string pattern = string.Format("br0: port {0}(ra0) entering forwarding state", i);
-                            if (GlobalData.uartData.Contains(pattern) == true) { ret = true; break; }
-                        }
+                        if (GlobalData.logContent.logviewUART.isWifiBootCompleted() == true) { ret = true; break; }
                         if (ret == true) break;
                         Thread.Sleep(1000);
                         if (index >= (tOut / 1000)) break;
