@@ -54,7 +54,11 @@ namespace TestPCBAForGW040E.Functions
         }
 
         public static bool isWifiBootCompleted(this string s) {
-            return Regex.IsMatch(s, ".br\\d+: port \\d+(ra\\d+) entering disabled state+");
+            return s.Contains("br0: port 1(ra0) entering forwarding state");
+        }
+
+        public static bool isWPSPressed(this string s) {
+            return s.Contains("br0: port 1(ra0) entering disabled state");
         }
     }
 }

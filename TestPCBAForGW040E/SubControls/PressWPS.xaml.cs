@@ -76,7 +76,7 @@ namespace TestPCBAForGW040E {
 
                     switch (_title) {
                         case 0: { //WPS
-                                if (GlobalData.logContent.logviewUART.isWifiBootCompleted()) {
+                                if (GlobalData.logContent.logviewUART.isWPSPressed()) {
                                     GlobalData.buttonResult = "OK";
                                     GlobalData.logDetailResult.WPSButton = "PASS";
                                     return;
